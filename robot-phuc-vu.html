@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Robot phục vụ nhà hàng | ARTECH Robotics</title>
+  <meta name="description" content="Robot phục vụ nhà hàng thông minh: bưng bê món ăn, định vị bàn, thanh toán QR, tự động hóa phục vụ và tối ưu trải nghiệm khách hàng." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="./styles.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="./robot_phuc_vu.css" />
+</head>
+
+<body>
+<div class="top-line"></div>
+<header class="header">
+<div class="header-inner">
+<a class="logo" href="./index.html#home">
+<img alt="ARTECH Robotics" src="./assets/artech-logo.png"/>
+</a>
+<button aria-label="Mở menu" class="hamburger" type="button">
+<span></span><span></span><span></span>
+</button>
+<nav class="nav">
+<div class="nav-item has-dropdown">
+<a href="./index.html#about">Về chúng tôi</a>
+<ul class="dropdown-menu">
+<a href="./index.html#about">Về ARTECH Robotics</a>
+<a href="./index.html#tam-nhin">Tầm nhìn, sứ mệnh, giá trị cốt lõi</a>
+</ul>
+</div>
+<div class="nav-item has-dropdown">
+<a href="./index.html#products">Sản phẩm</a>
+<ul class="dropdown-menu">
+<a href="./robot-mascot.html">Robot Mascot AI</a>
+<a href="./robot-phuc-vu.html">Robot phục vụ</a>
+</ul>
+</div>
+<div class="nav-item has-dropdown">
+    <a href="./index.html#rent">Thuê robot</a>
+    <ul class="dropdown-menu">
+    <a href="./thue-robot.html">Robot Mascot AI</a>
+    <a href="./thue-phuc-vu.html">Robot phục vụ</a>
+    </ul>
+    </div>
+<div class="nav-item has-dropdown">
+<a href="./index.html#services">Dịch vụ</a>
+<ul class="dropdown-menu">
+<a href="./index.html#dich-vu-thiet-ke-mascot">Thiết kế Mascot thương hiệu</a>
+<div class="dropdown-submenu"><a href="./index.html#dich-vu-bao-hanh">Bảo hành</a>
+<ul class="sub-menu">
+<a href="./index.html#bao-hanh">Bảo hành</a>
+<a href="./index.html#bao-tri-dinh-ky">Bảo trì định kỳ</a>
+<a href="./index.html#nang-cap-ai">Nâng cấp AI</a>
+<a href="./index.html#ho-tro-tu-xa">Hỗ trợ từ xa</a>
+</ul>
+</ul>
+</div>
+<div class="nav-item has-dropdown">
+<a href="./index.html#partners">Đối tác</a>
+<ul class="dropdown-menu">
+<a href="./index.html#partners">Khách hàng &amp; Đối tác</a>
+<a href="./index.html#projects">Dự án đã triển khai</a>
+</ul>
+</div>
+<div class="nav-item has-dropdown">
+<a href="./tin-tuc.html">Tin tức</a>
+<ul class="dropdown-menu">
+<a href="./tin-tuc.html#tin-tuc-artech">Tin tức về ARTECH Robotics</a>
+<a href="./tin-tuc.html#tuyen-dung">Tuyển dụng</a>
+</ul>
+</div>
+<a href="./index.html#contact">Liên hệ</a>
+</nav>
+<button class="login">Đăng nhập</button>
+</div>
+
+</header>
+
+<div class="menu-backdrop"></div>
+<aside class="mobile-menu">
+  <div class="mobile-head"><div><b>ARTECH Robotics</b><span>Công nghệ tiên phong, định vị bản sắc</span></div><button class="close-menu" type="button">×</button></div>
+<nav class="mobile-links">
+<a href="./index.html#about">Về chúng tôi</a>
+<a class="mobile-sub" href="./index.html#about">• Về ARTECH Robotics</a>
+<a class="mobile-sub" href="./index.html#tam-nhin">• Tầm nhìn, sứ mệnh, giá trị cốt lõi</a>
+<a class="mobile-sub" href="./index.html#capability">• Năng lực công ty</a>
+<a href="./index.html#products">Sản phẩm</a>
+<a class="mobile-sub" href="./robot-mascot.html">• Robot Mascot AI</a>
+<a class="mobile-sub" href="./robot-phuc-vu.html">• Robot phục vụ</a>
+<a href="./index.html#rent">Thuê robot</a>
+<a class="mobile-sub" href="./thue-robot.html">• Robot Mascot AI</a>
+<a class="mobile-sub" href="./thue-phuc-vu.html">• Robot phục vụ</a>
+<a href="./index.html#services">Dịch vụ</a>
+<a class="mobile-sub" href="./index.html#dich-vu-thiet-ke-mascot">• Thiết kế Mascot thương hiệu</a>
+<a class="mobile-sub" href="./index.html#bao-hanh">• Bảo hành</a>
+<a class="mobile-sub" href="./index.html#bao-tri-dinh-ky">• Bảo trì định kỳ</a>
+<a class="mobile-sub" href="./index.html#nang-cap-ai">• Nâng cấp AI</a>
+<a class="mobile-sub" href="./index.html#ho-tro-tu-xa">• Hỗ trợ từ xa</a>
+<a href="./index.html#partners">Đối tác</a>
+<a class="mobile-sub" href="./index.html#partners">• Khách hàng &amp; Đối tác</a>
+<a class="mobile-sub" href="./index.html#projects">• Dự án đã triển khai</a>
+<a href="./tin-tuc.html">Tin tức</a>
+<a class="mobile-sub" href="./tin-tuc.html#tin-tuc-artech">• Tin tức về ARTECH Robotics</a>
+<a class="mobile-sub" href="./tin-tuc.html#tuyen-dung">• Tuyển dụng</a>
+<a href="./index.html#contact">Liên hệ</a>
+<button type="button">Đăng nhập</button>
+</nav>
+  <div class="company-info"><b>CÔNG TY TNHH MỸ THUẬT VÀ CÔNG NGHỆ ARTECH</b><p>ARTECH Robotics</p><p>Robot AI, Robot Mascot AI, robot dịch vụ và giải pháp trải nghiệm thương hiệu cho doanh nghiệp.</p><p>Email: contact@artech.vn</p><p>Hotline: 0987 781 127</p></div>
+</aside>
+
+<main class="serve-page">
+
+    <!-- HERO -->
+    <section class="serve-hero" id="home">
+      <div class="hero-bg"></div>
+
+      <div class="serve-container hero-grid">
+        <div class="hero-copy" data-reveal="left">
+          <span class="eyebrow">ARTECH ROBOTICS</span>
+          <h1>ROBOT PHỤC VỤ<br>NHÀ HÀNG</h1>
+          <p>
+            <br> Robot phục vụ nhà hàng giúp doanh nghiệp tự động hóa quy trình vận chuyển món ăn, đồ uống và vật phẩm phục vụ trong các mô hình F&B hiện đại. Robot di chuyển đến đúng vị trí bàn, hỗ trợ thanh toán QR, giảm tải thao tác lặp lại cho nhân sự và nâng cao trải nghiệm phục vụ chuyên nghiệp.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="#features">Xem tính năng</a>
+            <a class="btn light" href="#contact">Liên hệ tư vấn</a>
+          </div>
+
+          <div class="hero-tags">
+            <span>Bưng bê món ăn</span>
+            <span>Tự động hóa phục vụ</span>
+            <span>Tối ưu nhân sự</span>
+            <span>Nâng cao trải nghiệm</span>
+          </div>
+        </div>
+
+        <div class="hero-robot-zone" data-reveal="up">
+          <div class="robot-glow"></div>
+          <img src="./assets/robot-phuc-vu.png" alt="Robot phục vụ nhà hàng ARTECH" class="hero-robot">
+        </div>
+
+        <div class="hero-cards" data-reveal="right">
+          <article>
+            <span class="card-icon"><img src="./assets/icon/bung-be.jpg" alt="bung be"></span> 
+            <div>
+              <h3>Bưng bê món ăn</h3>
+              <p>Hỗ trợ vận chuyển món ăn, đồ uống và vật phẩm phục vụ.</p>
+            </div>
+          </article>
+          <article>
+            <span class="card-icon"><img src="./assets/icon/dinh-vi.jpg" alt="dinh vi"></span>
+            <div>
+              <h3>Định vị bàn ăn</h3>
+              <p>Di chuyển đến các điểm bàn đã được thiết lập sẵn.</p>
+            </div>
+          </article>
+          <article>
+            <span class="card-icon"><img src="./assets/icon/ma-QR.jpg" alt="ma QR"></span>
+            <div>
+              <h3>Thanh toán QR</h3>
+              <p>Hiển thị mã QR thanh toán nhanh, thuận tiện cho khách.</p>
+            </div>
+          </article>
+          <article>
+            <span class="card-icon"><img src="./assets/icon/tu-dong.jpg" alt="tu dong"></span>
+            <div>
+              <h3>Tự động hóa phục vụ</h3>
+              <p>Giảm tải thao tác lặp lại, tăng hiệu quả vận hành.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="serve-section" id="features">
+      <div class="section-head center" data-reveal="up">
+        <h2>ĐẶC ĐIỂM NỔI BẬT</h2>
+        <p>Robot phục vụ được thiết kế để vận hành ổn định trong các không gian F&B hiện đại, hỗ trợ vận chuyển món ăn, đồ uống và nâng cao tính chuyên nghiệp cho quy trình phục vụ</p>
+      </div>
+
+      <div class="serve-container feature-grid">
+        <article class="feature-card bg-feature" data-reveal="up">
+          <div>
+            <h3>THIẾT KẾ <br> HIỆN ĐẠI</h3>
+            <p>Robot có kiểu dáng gọn gàng, tinh tế và thân thiện, phù hợp với nhà hàng, khách sạn, café, trung tâm tiệc cưới và các không gian dịch vụ cao cấp.</p>
+          </div>
+
+          <img src="./assets/thiet-ke-hien-dai.png" alt="Thiết kế robot phục vụ">
+        </article>
+
+        <article class="feature-card" data-reveal="up">
+          <div>
+            <h3>HỆ THỐNG KHAY PHỤC VỤ TỐI ƯU</h3>
+            <p>Robot được trang bị nhiều khay chứa chắc chắn, hỗ trợ vận chuyển món ăn, đồ uống và vật phẩm phục vụ đến từng bàn. Thiết kế khay rộng rãi, ổn định, giúp quá trình phục vụ diễn ra liên tục, gọn gàng và hiệu quả hơn.</p>
+          </div>
+          <img src="./assets/khay-phuc-vu.png" alt="Khay phục vụ robot">
+        </article>
+
+        <article class="feature-card" data-reveal="up">
+          <div>
+            <h3>DI CHUYỂN VÀ ĐỊNH VỊ </h3>
+            <p>Robot có khả năng tự động di chuyển trong không gian nhà hàng, ghi nhớ vị trí bàn và điều hướng chính xác theo bản đồ đã cài đặt. Giải pháp giúp giảm tải thao tác di chuyển lặp lại cho nhân sự, đặc biệt trong giờ cao điểm.</p>
+          </div>
+          <img src="./assets/di-chuyen-linh-hoat.png" alt="Robot di chuyển trong nhà hàng">
+        </article>
+
+        <article class="feature-card" data-reveal="up">
+          <div>
+            <h3>MÀN HÌNH <br> HIỂN THỊ</h3>
+            <p>Robot sở hữu một màn hình hiển thị khuôn mặt với biểu cảm thân thiện và một màn hình cảm ứng để hiển thị menu, thông tin món ăn, ưu đãi, mã QR thanh toán hoặc nội dung truyền thông của nhà hàng.</p>
+          </div>
+          <img src="./assets/ma-QR.png" alt="Thanh toán QR">
+        </article>
+
+        <article class="feature-card" data-reveal="up">
+          <div>
+            <h3>TƯƠNG TÁC VÀ THANH TOÁN</h3>
+            <p>Robot có thể hỗ trợ hiển thị mã QR thanh toán, phát lời chào, thông báo món đã đến bàn và hướng dẫn khách lấy món. Các tính năng tương tác giúp trải nghiệm phục vụ trở nên tiện lợi, rõ ràng và hiện đại hơn.</p>
+          </div>
+          <img src="./assets/tuong-tac.png" alt="Màn hình robot">
+        </article>
+
+        <article class="feature-card" data-reveal="up">
+          <div>
+            <h3>NHẬN DIỆN THƯƠNG HIỆU</h3>
+            <p>Robot có thể tùy chỉnh logo, màu sắc, giao diện màn hình, lời chào và nội dung hiển thị theo nhận diện riêng của từng nhà hàng. Điều này giúp doanh nghiệp tạo dấu ấn khác biệt và ghi nhớ tốt hơn trong mắt khách hàng.</p>
+          </div>
+          <img src="./assets/nhan-dien-thuong-hieu.png" alt="Tùy chỉnh thương hiệu">
+        </article>
+      </div>
+    </section>
+
+    <!-- ROBOT CAN DO -->
+    <section class="serve-section can-do-section">
+      <div class="serve-container split-grid">
+        <div class="split-copy" data-reveal="left">
+          <h2>ROBOT PHỤC VỤ NHÀ HÀNG CÓ THỂ LÀM GÌ?</h2>
+          <p>
+            Robot được phát triển như một nhân viên phục vụ thông minh, hỗ trợ đội ngũ nhân sự trong các thao tác vận hành tại nhà hàng.
+          </p>
+          <ul class="check-list">
+            <li>Vận chuyển món ăn, đồ uống và vật phẩm phục vụ.</li>
+            <li>Tự động di chuyển theo tuyến đường và vị trí bàn đã được thiết lập.</li>
+            <li>Hỗ trợ giao món từ khu vực bếp đến khu vực phục vụ khách hàng.</li>
+            <li>Đóng vai trò như mascot thương hiệu, tạo điểm nhấn công nghệ hiện đại cho không gian nhà hàng.</li>
+            <li>Hiển thị menu, mã QR thanh toán, ưu đãi... trên màn hình.</li>
+            <li>Phát lời chào, thông báo món đã đến bàn và hướng dẫn khách hàng lấy món.</li>
+            <li>Giảm tải các thao tác lặp lại cho nhân viên trong quá trình vận hành.</li>
+            <li>Góp phần chuẩn hóa quy trình phục vụ và nâng cao hình ảnh chuyên nghiệp của doanh nghiệp.</li>
+          </ul>
+        </div>
+
+        <div class="photo-mosaic" data-reveal="right">
+          <img src="./assets/serve-card-1.jpg" alt="Robot phục vụ trong nhà hàng">
+          <img src="./assets/serve-card-2.jpg" alt="Robot phục vụ khách">
+          <img src="./assets/serve-card-3.jpg" alt="Robot hoạt động trong không gian F&B">
+          <img src="./assets/serve-card-4.jpg" alt="Robot giao món">
+          <img src="./assets/serve-card-5.jpg" alt="tương tác với robot">
+        </div>
+      </div>
+    </section>
+
+    <!-- APPLICATION -->
+    <section class="serve-section app-section">
+      <div class="section-head center" data-reveal="up">
+        <h2>ỨNG DỤNG THỰC TẾ</h2>
+      </div>
+
+      <div class="serve-container app-grid">
+        <article class="app-card" data-reveal="up">
+          <img src="./assets/robot-o-nha-hang.png" alt="Nhà hàng">
+          <h3>Nhà hàng</h3>
+          <p>Hỗ trợ vận chuyển món ăn, đồ uống từ khu vực bếp đến từng bàn của khách hàng, giúp tối ưu quy trình phục vụ và giảm tải công việc lặp lại cho nhân sự.</p>
+        </article>
+        <article class="app-card" data-reveal="up">
+          <img src="./assets/robot-o-khach-san.png" alt="Khách sạn">
+          <h3>Khách sạn</h3>
+          <p>Phù hợp với nhà hàng khách sạn, sảnh tiệc, buffet hoặc khu vực lounge, góp phần nâng cao trải nghiệm dịch vụ và hình ảnh chuyên nghiệp.</p>
+        </article>
+        <article class="app-card" data-reveal="up">
+          <img src="./assets/robot-o-tttm.png" alt="trung tâm thương mại">
+          <h3>trung tâm thương mại</h3>
+          <p>Phù hợp với khu ẩm thực, food court và mô hình dịch vụ đông khách, hỗ trợ điều phối phục vụ hiệu quả và tạo trải nghiệm hiện đại, khác biệt.</p>
+        </article>
+        <article class="app-card" data-reveal="up">
+          <img src="./assets/robot-o-cafe.png" alt="Quán café">
+          <h3>Quán café</h3>
+          <p>Tạo điểm nhấn công nghệ trong không gian phục vụ, hỗ trợ giao đồ uống, món nhẹ và tăng trải nghiệm tương tác cho khách hàng.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="serve-section process-section">
+      <div class="section-head center" data-reveal="up">
+        <h4>QUY TRÌNH TRIỂN KHAI ROBOT PHỤC VỤ</h4>
+      </div>
+
+      <div class="serve-container process-line">
+        <article data-reveal="up">
+          <span>01</span>
+          <h3>Khảo sát nhu cầu</h3>
+          <p>ARTECH Robotics tiếp nhận thông tin về mô hình kinh doanh, mặt bằng, quy trình phục vụ, số lượng bàn, khu vực bếp/quầy và nhu cầu sử dụng robot thực tế.</p>
+        </article>
+        <article data-reveal="up">
+          <span>02</span>
+          <h3>Tư vấn cấu hình <br> phù hợp</h3>
+          <p>Dựa trên không gian vận hành, ARTECH Robotics đề xuất cấu hình robot, số lượng khay, nội dung hiển thị, kịch bản giao tiếp và phương án di chuyển phù hợp.</p>
+        </article>
+        <article data-reveal="up">
+          <span>03</span>
+          <h3>Thiết lập điểm <br> phục vụ</h3>
+          <p>Các vị trí bàn, khu vực nhận món, khu vực chờ và lộ trình di chuyển được thiết lập để robot có thể hoạt động hiệu quả trong không gian nhà hàng.</p>
+        </article>
+        <article data-reveal="up">
+          <span>04</span>
+          <h3>Tùy chỉnh nội dung thương hiệu</h3>
+          <p>Robot được cấu hình logo, lời chào, thông tin món ăn, mã QR thanh toán, chương trình ưu đãi hoặc nội dung truyền thông theo nhận diện của nhà hàng.</p>
+        </article>
+        <article data-reveal="up">
+          <span>05</span>
+          <h3>Kiểm thử vận hành</h3>
+          <p>ARTECH Robotics tiến hành kiểm tra khả năng di chuyển, nhận điểm bàn, thao tác giao món, hiển thị thông tin và độ phù hợp với quy trình phục vụ thực tế.</p>
+        </article>
+        <article data-reveal="up">
+          <span>06</span>
+          <h3>Bàn giao và hướng dẫn sử dụng</h3>
+          <p>Đội ngũ ARTECH Robotics hướng dẫn nhân viên sử dụng robot, quản lý nội dung, vận hàng ngày và hỗ trợ kỹ thuật trong quá trình sử dụng.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section class="serve-section why-section">
+      <div class="serve-container why-grid">
+        <article class="why-card" data-reveal="left">
+          <h2>VÌ SAO CHỌN<br>ARTECH ROBOTICS?</h2>
+          <ul class="check-list">
+            <li>Giải pháp phù hợp với thực tế vận hành tại Việt Nam.</li>
+            <li>Hỗ trợ tùy chỉnh theo không gian và mô hình kinh doanh.</li>
+            <li>Thiết kế hiện đại, dễ tạo điểm nhấn truyền thông.</li>
+            <li>Có thể cá nhân hóa nội dung theo thương hiệu nhà hàng.</li>
+            <li>Tối ưu chi phí so với các giải pháp robot quốc tế tiêu chuẩn hóa.</li>
+            <li>Đội ngũ kỹ thuật đồng hành trong quá trình triển khai và vận hành.</li>
+            <li> Phù hợp với nhà hàng muốn nâng cao trải nghiệm khách hàng mà không làm mất đi yếu tố phục vụ con người.</li>
+          </ul>
+        </article>
+
+        <article class="why-card robot-fit" data-reveal="right">
+          <div>
+            <h2>ROBOT PHỤC VỤ<br>PHÙ HỢP VỚI?</h2>
+            <ul class="check-list">
+              <li>Nhà hàng có lưu lượng khách lớn.</li>
+              <li>Nhà hàng muốn tối ưu nhân sự phục vụ.</li>
+              <li>Khách sạn, resort, khu nghỉ dưỡng.</li>
+              <li>Quán café, trà sữa, mô hình F&B hiện đại.</li>
+              <li>Trung tâm tiệc cưới, hội nghị, sự kiện.</li>
+              <li>Food court, trung tâm thương mại, khu vui chơi.</li>
+              <li>Doanh nghiệp muốn tạo điểm nhấn công nghệ tại không gian dịch vụ.</li>
+              <li>Thương hiệu F&B muốn tăng trải nghiệm check-in và truyền thông.</li>
+            </ul>
+          </div>
+          <img src="./assets/robot-phuc-vu-cuoi.png" alt="Robot phù hợp với nhà hàng">
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <!-- FAQ -->
+    <section class="serve-section faq-section" id="faq">
+      <div class="serve-container">
+        <div class="section-head center" data-reveal="up">
+          <h2>CÂU HỎI THƯỜNG GẶP</h2>
+        </div>
+
+        <div class="faq-list-small">
+          <details class="faq-item" data-reveal="up">
+            <summary>Robot phục vụ có thể làm những công việc gì?</summary>
+            <div class="faq-answer">
+              <p>Robot phục vụ hỗ trợ vận chuyển món ăn, đồ uống và vật phẩm từ khu vực bếp đến vị trí bàn đã được thiết lập. Ngoài ra, robot có thể phát lời chào, thông báo món đã đến bàn, hiển thị menu, mã QR thanh toán hoặc nội dung truyền thông theo nhu cầu của nhà hàng.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" data-reveal="up">
+            <summary>Robot có thay thế hoàn toàn nhân viên phục vụ không?</summary>
+            <div class="faq-answer">
+              <p>Không. Robot được thiết kế để hỗ trợ nhân sự trong các thao tác lặp lại như bưng bê, di chuyển món và thông báo phục vụ. Nhân viên vẫn giữ vai trò quan trọng trong việc chăm sóc khách hàng, xử lý tình huống, tư vấn món ăn và đảm bảo chất lượng dịch vụ tổng thể.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" data-reveal="up">
+            <summary>Robot có tự di chuyển đến đúng bàn không?</summary>
+            <div class="faq-answer">
+              <p>Có. Robot có thể được cấu hình bản đồ khu vực phục vụ và ghi nhớ vị trí các bàn trong nhà hàng. Khi nhận lệnh, robot sẽ tự động di chuyển đến đúng điểm cần phục vụ, giúp quy trình giao món diễn ra nhanh chóng, ổn định và giảm tải cho nhân sự trong giờ cao điểm.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" data-reveal="up">
+            <summary>Robot có phù hợp với nhà hàng nhỏ hoặc không gian hẹp không?</summary>
+            <div class="faq-answer">
+              <p>Có. Trước khi triển khai, ARTECH Robotics sẽ khảo sát mặt bằng, lối đi, cách bố trí bàn ghế và quy trình vận hành thực tế. Từ đó, robot được tư vấn cấu hình phù hợp với từng không gian, đảm bảo khả năng di chuyển thuận tiện và an toàn trong quá trình phục vụ.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" data-reveal="up">
+            <summary>Robot có hỗ trợ hiển thị menu và thanh toán QR không?</summary>
+            <div class="faq-answer">
+              <p>Có. Robot có thể tích hợp màn hình hiển thị menu, thông tin món ăn, chương trình ưu đãi hoặc mã QR thanh toán. Tính năng này giúp khách hàng dễ dàng xem thông tin, thao tác nhanh hơn và góp phần tạo trải nghiệm phục vụ hiện đại, tiện lợi tại bàn.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" data-reveal="up">
+            <summary>ARTECH có hỗ trợ lắp đặt, setup và đào tạo vận hành không?</summary>
+            <div class="faq-answer">
+              <p>Có. ARTECH Robotics hỗ trợ từ khâu tư vấn giải pháp, khảo sát không gian, cấu hình robot, cài đặt tuyến đường di chuyển, bàn giao và hướng dẫn đội ngũ nhà hàng sử dụng. Trong quá trình vận hành, ARTECH Robotics tiếp tục hỗ trợ kỹ thuật để đảm bảo robot hoạt động ổn định và hiệu quả.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="serve-section cta-section" id="contact">
+      <div class="serve-container cta-box" data-reveal="up">
+        <div>
+          <h2>SẴN SÀNG NÂNG CẤP TRẢI NGHIỆM<br>PHỤC VỤ TẠI NHÀ HÀNG?</h2>
+          <p>Robot phục vụ nhà hàng của ARTECH Robotics giúp doanh nghiệp tối ưu vận hành, giảm tải nhân sự và tạo dấu ấn công nghệ khác biệt trong mắt khách hàng. <br> Liên hệ ARTECH Robotics để được tư vấn giải pháp phù hợp với mô hình nhà hàng của bạn.</p>
+          <div class="hero-actions">
+            <a class="btn light" href="./index.html#contact">Nhận tư vấn triển khai</a>
+            <a class="btn outline" href="#features">Xem mẫu robot phục vụ</a>
+          </div>
+        </div>
+        <img src="./assets/robot-phuc-vu.png" alt="Robot phục vụ ARTECH">
+      </div>
+    </section>
+  </main>
+<footer class="site-footer">
+<div class="footer-wrap">
+<div class="footer-col footer-brand">
+<img alt="ARTECH Robotics" src="./assets/artech-logo.png"/>
+<p>
+          ARTECH Robotics | Giải pháp robot thông minh mang bản sắc thương hiệu Việt.
+        </p>
+<div class="footer-social">
+  <a href="https://www.facebook.com/ARTECH.Robotics" target="_blank" aria-label="Facebook">
+    <img src="./assets/logo-face.png" alt="Facebook Icon" width="24" height="24"/>
+  </a>
+
+  <a href="https://www.tiktok.com/@artechrobotics.official" target="_blank" aria-label="TikTok">
+    <img src="./assets/logo-tik-tok.png" alt="TikTok Icon" width="24" height="24"/>
+  </a>
+</div>
+</div>
+<div class="footer-col">
+<h4>SẢN PHẨM</h4>
+<a href="./robot-mascot.html">Robot Mascot AI</a>
+<a href="./robot-phuc-vu.html">Robot Phục Vụ</a>
+<h4 class="footer-subtitle">DỊCH VỤ</h4>
+<a href="#services">Bảo hành </a>
+<a href="#services">Bảo trì định kỳ</a>
+<a href="#services">Nâng cấp AI</a>
+<a href="#services">Hỗ trợ từ xa</a>
+</div>
+<div class="footer-col">
+<h4>Thuê robot</h4>
+<a href="#contact">Robot Mascot AI</a>
+<a href="#contact">Robot Phục Vụ</a>
+<h4 class="footer-subtitle"></h4>
+<h4>ĐỐI TÁC</h4>
+<a href="#partners">Đối tác chiến lược</a>
+<a href="#partners">Sở hữu/Thuê Robot</a>
+</div>
+<div class="footer-col footer-contact">
+<h4>THÔNG TIN LIÊN HỆ</h4>
+<p>MST: 0111199052</p>
+<p>SĐT: 033 380 8821</p>
+<p>Email: artechbt@gmail.com</p>
+<p>Địa chỉ: Số 6, NV2 Khu đô thị liền kề GreenPark, Số 319 Phố Vĩnh Hưng, Phường Vĩnh Hưng, TP Hà Nội, Việt Nam</p>
+</div>
+</div>
+</footer>
+
+<button class="back-top" type="button" aria-label="Lên đầu trang">↑</button>
+<div class="floating-contact">
+  <div><a href="https://zalo.me/1930150058637558711" target="_blank" aria-label="Zalo"><img title="Chat Zalo" src="https://roboworld.com.vn/wp-content/uploads/2026/03/zalo-icon.png" alt="zalo-icon" width="40" height="40"></a></div>
+  <div><a href="https://www.facebook.com/messages/t/1039645922565219" target="_blank" aria-label="Messenger"><img title="Chat Messenger" src="https://roboworld.com.vn/wp-content/uploads/2026/03/messenger.png" alt="facebook-icon" width="40" height="40"></a></div>
+  <div><a href="#contact" aria-label="Liên hệ"><img title="Call Hotline" src="https://roboworld.com.vn/wp-content/uploads/2026/03/phone-icon.png" alt="phone-icon" width="40" height="40"></a></div>
+</div>
+
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const revealItems = document.querySelectorAll("[data-reveal]");
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        });
+      }, {
+        threshold: 0.16,
+        rootMargin: "0px 0px -8% 0px"
+      });
+
+      revealItems.forEach((item, index) => {
+        item.style.setProperty("--delay", `${Math.min(index % 6, 5) * 70}ms`);
+        revealObserver.observe(item);
+      });
+
+      document.querySelectorAll(".faq-item button").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const item = btn.closest(".faq-item");
+          item.classList.toggle("open");
+        });
+      });
+    });
+  </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.querySelector(".hamburger");
+    const closeMenu = document.querySelector(".close-menu");
+    const backdrop = document.querySelector(".menu-backdrop");
+    const backTop = document.querySelector(".back-top");
+
+    function openMenu() {
+      document.body.classList.add("menu-open");
+    }
+
+    function closeMobileMenu() {
+      document.body.classList.remove("menu-open");
+    }
+
+    hamburger?.addEventListener("click", openMenu);
+    closeMenu?.addEventListener("click", closeMobileMenu);
+    backdrop?.addEventListener("click", closeMobileMenu);
+
+    document.querySelectorAll(".mobile-links a").forEach((link) => {
+      link.addEventListener("click", closeMobileMenu);
+    });
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 520) backTop?.classList.add("show");
+      else backTop?.classList.remove("show");
+    });
+
+    backTop?.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,3855 @@
+/* =========================================================
+   THUÊ ROBOT PHỤC VỤ NHÀ HÀNG - PROFESSIONAL VERSION
+   File: thue-phuc-vu.css
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #012774;
+  --primary-2: #003194;
+  --blue: #005bd8;
+  --blue-2: #1d8cff;
+  --cyan: #00a6e5;
+  --bg: #f5faff;
+  --soft: #edf6ff;
+  --text: #0b2d66;
+  --muted: #607797;
+  --line: #dce9f8;
+  --white: #fff;
+  --shadow: 0 26px 70px rgba(1, 39, 116, .16);
+  --soft-shadow: 0 12px 34px rgba(1, 39, 116, .08);
+  --radius: 24px;
+  --ease: cubic-bezier(.22, 1, .36, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Be Vietnam Pro", Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* HEADER */
+.top-line {
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--cyan), var(--primary));
+  background-size: 220% 100%;
+  animation: lineFlow 5.5s linear infinite;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,.88);
+  border-bottom: 1px solid rgba(220,233,248,.85);
+  backdrop-filter: blur(18px);
+  transition: box-shadow .25s ease, background .25s ease;
+}
+
+.site-header.is-scrolled {
+  background: rgba(255,255,255,.95);
+  box-shadow: 0 14px 36px rgba(1,39,116,.10);
+}
+
+.header-inner {
+  width: min(1240px, calc(100% - 40px));
+  min-height: 72px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--primary);
+  font-size: 11px;
+  line-height: 1.05;
+  font-weight: 950;
+  letter-spacing: .07em;
+}
+
+.brand-mark {
+  width: 56px;
+  height: 38px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #e9f1ff 0%, #fff 42%, #aeeeff 100%);
+  color: var(--primary);
+  font-size: 20px;
+  box-shadow: inset 0 0 0 1px rgba(220,233,248,.9), 0 10px 22px rgba(1,39,116,.08);
+}
+
+.brand b {
+  color: var(--cyan);
+  font-size: 10px;
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  color: #061b44;
+  font-size: 14px;
+  font-weight: 850;
+}
+
+.nav a {
+  padding: 24px 0;
+  position: relative;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 17px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--primary), var(--cyan));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .22s ease;
+}
+
+.nav a:hover::after {
+  transform: scaleX(1);
+}
+
+
+h4 {
+    display: block;
+    font-size: clamp(30px, 3vw, 44px);
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+    text-align: center;
+    color: #012774;
+}
+
+.header-cta,
+.mobile-cta {
+  min-height: 44px;
+  padding: 11px 22px;
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  font-size: 14px;
+  font-weight: 900;
+  box-shadow: 0 14px 30px rgba(1,39,116,.22);
+  white-space: nowrap;
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+
+.header-cta:hover,
+.mobile-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 44px rgba(1,39,116,.26);
+}
+
+.hamburger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  margin-left: auto;
+}
+
+.hamburger span {
+  width: 23px;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 999px;
+}
+
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: rgba(2,8,23,.52);
+  opacity: 0;
+  visibility: hidden;
+  transition: .24s;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1200;
+  width: min(88vw, 390px);
+  height: 100dvh;
+  padding: 28px 22px;
+  background: #fff;
+  box-shadow: -28px 0 80px rgba(1,39,116,.20);
+  transform: translateX(105%);
+  transition: transform .28s var(--ease);
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+body.menu-open .menu-backdrop {
+  opacity: 1;
+  visibility: visible;
+}
+
+body.menu-open .mobile-menu {
+  transform: translateX(0);
+}
+
+.close-menu {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #f8fbff;
+  color: var(--primary);
+  font-size: 26px;
+}
+
+.mobile-menu b {
+  color: var(--primary);
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.mobile-menu a {
+  padding: 13px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: #f8fbff;
+  color: var(--primary);
+  font-weight: 850;
+}
+
+/* COMMON */
+.rent-service-page {
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 10% 12%, rgba(0,166,229,.10), transparent 30%),
+    linear-gradient(180deg, #ffffff 0%, var(--bg) 45%, #ffffff 100%);
+}
+
+.rent-container {
+  width: min(1240px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.rent-section {
+  padding: 76px 0;
+  position: relative;
+}
+
+.section-head {
+  width: min(850px, calc(100% - 48px));
+  margin: 0 auto 38px;
+  text-align: center;
+}
+
+.section-head span,
+.section-kicker {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: var(--cyan);
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.section-head h2 {
+  margin: 0;
+  color: var(--primary);
+  font-size: clamp(30px, 3vw, 44px);
+  line-height: 1.08;
+  font-weight: 950;
+  letter-spacing: -.045em;
+}
+
+.section-head p {
+  max-width: 720px;
+  margin: 13px auto 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.btn {
+  min-height: 50px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 950;
+  border: 1px solid transparent;
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease), background .25s var(--ease);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: -80% auto -80% -60%;
+  width: 48%;
+  transform: skewX(-22deg);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.62), transparent);
+  opacity: 0;
+  z-index: -1;
+}
+
+.btn:hover::after {
+  animation: btnShine .95s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn.primary {
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--blue));
+  box-shadow: 0 17px 38px rgba(0,61,170,.25);
+}
+
+.btn.white {
+  color: var(--primary);
+  background: #fff;
+  border-color: var(--line);
+  box-shadow: var(--soft-shadow);
+}
+
+.btn.ghost {
+  color: #fff;
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.55);
+}
+
+/* HERO */
+.rent-hero {
+  position: relative;
+  min-height: 735px;
+  padding: 76px 0 58px;
+  overflow: hidden;
+  background: #f7fbff;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.76) 42%, rgba(255,255,255,.26) 100%),
+    url("./assets/background-phuc-vu.png") center center / cover no-repeat;
+  transform: scale(1.02);
+  animation: heroZoom 9s ease both;
+}
+
+.hero-orbit {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(1px);
+}
+
+.orbit-a {
+  width: 520px;
+  height: 520px;
+  right: 21%;
+  top: 12%;
+  background: radial-gradient(circle, rgba(0,166,229,.16), transparent 64%);
+  animation: orbitPulse 5.8s ease-in-out infinite;
+}
+
+.orbit-b {
+  width: 460px;
+  height: 460px;
+  left: 2%;
+  bottom: -14%;
+  background: radial-gradient(circle, rgba(1,39,116,.10), transparent 66%);
+  animation: orbitPulse 6.6s ease-in-out infinite reverse;
+}
+
+.hero-layout {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.05fr .76fr .88fr;
+  gap: 34px;
+  align-items: center;
+}
+
+.breadcrumb {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: .08em;
+}
+
+.hero-copy h1 {
+  margin: 0;
+  color: var(--primary);
+  font-size: clamp(36px, 2vw, 50px);
+  line-height: 1.3;
+  font-weight: 950;
+  letter-spacing: -.06em;
+}
+
+.hero-copy p {
+  margin: 24px 0 0;
+  max-width: 650px;
+  color: #526b8b;
+  font-size: 15.5px;
+  font-weight: 500;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.hero-mini-features {
+  display: grid;
+  grid-template-columns: repeat(3, 145px);
+  gap: 14px;
+  margin-top: 36px;
+}
+
+.hero-mini-features article {
+  width: 145px;
+  min-height: 105px;
+  padding: 16px 12px;
+  min-height: 96px;
+  padding: 14px 10px;
+  border-radius: 20px;
+  background: rgba(255,255,255,.88);
+  border: 1px solid var(--line);
+  box-shadow: var(--soft-shadow);
+  text-align: center;
+  transition: .28s var(--ease);
+  backdrop-filter: blur(12px);
+}
+
+.hero-mini-features article:hover {
+  transform: translateY(-7px);
+  box-shadow: var(--shadow);
+}
+
+.hero-mini-features span {
+  display: block;
+  font-size: 25px;
+  margin-bottom: 7px;
+}
+
+.hero-mini-features b {
+  color: var(--primary);
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.hero-robot {
+  position: relative;
+  min-height: 570px;
+  display: grid;
+  place-items: end center;
+}
+
+.robot-halo {
+  position: absolute;
+  width: 370px;
+  height: 440px;
+  border-radius: 38px;
+  background: rgba(255,255,255,.48);
+  box-shadow: 0 34px 80px rgba(1,39,116,.12);
+  backdrop-filter: blur(8px);
+}
+
+.robot-card-bg {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  bottom: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,166,229,.20), transparent 70%);
+  animation: orbitPulse 4.8s ease-in-out infinite;
+}
+
+.hero-robot img {
+  position: relative;
+  z-index: 2;
+  width: min(455px, 125%);
+  max-height: 595px;
+  object-fit: contain;
+  filter: drop-shadow(0 26px 42px rgba(1,39,116,.17));
+  animation: floatRobot 5.8s ease-in-out infinite;
+}
+
+.hero-info-cards {
+  display: grid;
+  gap: 18px;
+}
+
+.hero-info-cards article {
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 20px 22px;
+  border-radius: 24px;
+  background: rgba(255,255,255,.94);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+  transition: .28s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-info-cards article::before,
+.feature-card::before,
+.package-grid article::before,
+.note-grid article::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.65) 35%, transparent 70%);
+  transform: translateX(-130%);
+  transition: transform .65s var(--ease);
+}
+
+.hero-info-cards article:hover::before,
+.feature-card:hover::before,
+.package-grid article:hover::before,
+.note-grid article:hover::before {
+  transform: translateX(130%);
+}
+
+.hero-info-cards article:hover {
+  transform: translateX(-8px);
+  box-shadow: 0 30px 72px rgba(1,39,116,.18);
+}
+
+.hero-info-cards span {
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  display: grid;
+  place-items: center;
+  background: #eef7ff;
+  border: 1px solid #cfe3f8;
+  font-size: 25px;
+}
+
+.hero-info-cards h3 {
+  margin: 0 0 5px;
+  color: var(--primary);
+  font-size: 16px;
+  font-weight: 950;
+}
+
+.hero-info-cards p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13.5px;
+}
+
+/* WHY RENT */
+.why-rent {
+  background: #fff;
+  padding-top: 66px;
+  padding-bottom: 66px;
+}
+
+.why-rent-grid {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 52px;
+  align-items: center;
+}
+
+.why-rent-left h2,
+.can-copy h2,
+.note-grid h2 {
+  margin: 0 0 16px;
+  color: var(--primary);
+  font-size: clamp(30px, 3vw, 44px);
+  line-height: 1.08;
+  font-weight: 950;
+  letter-spacing: -.04em;
+  text-align: center;
+}
+
+.why-rent-left p {
+  color: var(--muted);
+  margin: 0 0 22px;
+}
+
+.why-rent-left img {
+  width: 531px;
+  height: 209px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: var(--soft-shadow);
+}
+
+.why-rent-list {
+  display: grid;
+  gap: 18px;
+}
+
+.why-rent-list p {
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.why-rent-list span,
+.check-list li::before {
+  width: 23px;
+  height: 23px;
+  flex: 0 0 23px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--cyan));
+  font-size: 12px;
+  font-weight: 950;
+}
+
+/* FEATURES */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.feature-card {
+  min-height: 176px;
+  display: grid;
+  grid-template-columns: 155px 1fr;
+  gap: 18px;
+  padding: 16px;
+  border-radius: 22px;
+  background: rgba(255,255,255,.96);
+  border: 1px solid var(--line);
+  box-shadow: var(--soft-shadow);
+  transition: .28s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card:hover,
+.customer-grid article:hover,
+.package-grid article:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow);
+  border-color: rgba(0,166,229,.34);
+}
+
+.feature-card img {
+  width: 155px;
+  height: 142px;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: transform .45s var(--ease);
+}
+
+.feature-card:hover img {
+  transform: scale(1.06);
+}
+
+.feature-card h3 {
+  margin: 4px 0 8px;
+  color: var(--primary);
+  font-size: 16px;
+  font-weight: 950;
+}
+
+.feature-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* CAN DO */
+.can-do {
+  background: #fff;
+}
+
+.can-do-grid {
+  display: grid;
+  grid-template-columns: .78fr 1.22fr;
+  gap: 42px;
+  align-items: center;
+}
+
+.check-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 13px;
+}
+
+.check-list li {
+  position: relative;
+  padding-left: 38px;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.check-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.mosaic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.mosaic img {
+  width: 100%;
+  height: 218px;
+  border-radius: 24px;
+  object-fit: cover;
+  box-shadow: var(--soft-shadow);
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+
+.mosaic img:hover {
+  transform: scale(1.025);
+  box-shadow: var(--shadow);
+}
+
+/* CUSTOMERS */
+.customers {
+  background: var(--bg);
+}
+
+.customer-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
+}
+
+.customer-grid article,
+.package-grid article,
+.note-grid article,
+.faq-item {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: var(--soft-shadow);
+}
+
+.customer-grid article {
+  overflow: hidden;
+  text-align: center;
+  transition: .28s var(--ease);
+}
+
+.customer-grid img {
+  width: 100%;
+  height: 126px;
+  object-fit: cover;
+}
+
+.customer-grid h3 {
+  margin: 15px 12px 8px;
+  color: var(--primary);
+  font-size: 15px;
+  font-weight: 950;
+}
+
+.customer-grid p {
+  margin: 0 14px 18px;
+  color: var(--muted);
+  font-size: 12.5px;
+}
+
+/* PACKAGES */
+.packages {
+  background: #fff;
+}
+
+.package-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.package-grid article {
+  padding: 28px 24px;
+  transition: .28s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.package-grid span {
+  font-size: 34px;
+}
+
+.package-grid h3 {
+  margin: 14px 0 8px;
+  color: var(--primary);
+  font-size: 18px;
+  font-weight: 950;
+}
+
+.package-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* PROCESS */
+.process {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(0,166,229,.12), transparent 35%),
+    var(--bg);
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+  position: relative;
+}
+
+.process-grid::before {
+  content: "";
+  position: absolute;
+  top: 37px;
+  left: 5%;
+  right: 5%;
+  border-top: 2px dashed #cfe0f5;
+}
+
+.process-grid article {
+  position: relative;
+  z-index: 2;
+  padding: 0 10px;
+  text-align: center;
+}
+
+.process-grid span {
+  width: 36px;
+  height: 36px;
+  margin: 0 auto 10px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--blue-2));
+  font-size: 12px;
+  font-weight: 950;
+  box-shadow: 0 10px 20px rgba(0,91,216,.22);
+}
+
+.process-grid i {
+  width: 74px;
+  height: 74px;
+  margin: 0 auto 14px;
+  border-radius: 22px;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: var(--soft-shadow);
+  color: var(--primary);
+  font-style: normal;
+  font-size: 28px;
+  transition: .28s var(--ease);
+}
+
+.process-grid article:hover i {
+  transform: translateY(-7px) rotate(-2deg);
+  box-shadow: var(--shadow);
+}
+
+.process-grid h3 {
+  margin: 0 0 8px;
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 950;
+}
+
+.process-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* NOTES */
+.note-section {
+  background: #fff;
+  padding-top: 48px;
+}
+
+.note-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.note-grid article {
+  padding: 34px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* FAQ */
+.faq-section {
+  background: #fff;
+  padding-top: 46px;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 22px;
+}
+
+.faq-item {
+  overflow: hidden;
+  transition: .25s var(--ease);
+}
+
+.faq-item:hover {
+  box-shadow: var(--shadow);
+}
+
+.faq-item button {
+  width: 100%;
+  min-height: 66px;
+  border: 0;
+  background: transparent;
+  color: var(--primary);
+  text-align: left;
+  padding: 18px 54px 18px 22px;
+  font-weight: 950;
+  position: relative;
+}
+
+.faq-item button::after {
+  content: "+";
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary);
+  font-size: 22px;
+  font-weight: 950;
+}
+
+.faq-item.open button::after {
+  content: "−";
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .35s var(--ease);
+}
+
+.faq-item.open .faq-answer {
+  max-height: 230px;
+}
+
+.faq-answer p {
+  margin: 0;
+  padding: 0 22px 22px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* CTA */
+.cta-section {
+  padding-top: 40px;
+  padding-bottom: 94px;
+}
+
+.cta-box {
+  min-height: 328px;
+  padding: 48px;
+  border-radius: 32px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 330px;
+  gap: 30px;
+  align-items: center;
+  color: #fff;
+  background:
+    radial-gradient(circle at 78% 35%, rgba(0,166,229,.34), transparent 34%),
+    linear-gradient(135deg, #003b9d 0%, #00266f 100%);
+  box-shadow: 0 30px 86px rgba(0,45,132,.25);
+  position: relative;
+}
+
+.cta-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg, rgba(255,255,255,.12), transparent 38%),
+    radial-gradient(circle at 95% 10%, rgba(255,255,255,.16), transparent 30%);
+  pointer-events: none;
+}
+
+.cta-box > * {
+  position: relative;
+  z-index: 2;
+}
+
+.cta-box h2 {
+  margin: 0 0 16px;
+  color: #fff;
+  font-size: clamp(34px, 4vw, 54px);
+  line-height: 1.04;
+  font-weight: 950;
+  letter-spacing: -.045em;
+}
+
+.cta-box p {
+  margin: 0;
+  max-width: 760px;
+  color: rgba(255,255,255,.84);
+}
+
+.cta-box img {
+  justify-self: center;
+  max-height: 310px;
+  object-fit: contain;
+  filter: drop-shadow(0 22px 34px rgba(0,0,0,.14));
+  animation: floatRobot 5.8s ease-in-out infinite;
+}
+
+.back-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 900;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--primary);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: .24s;
+  box-shadow: 0 16px 34px rgba(1,39,116,.24);
+}
+
+.back-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ANIMATION */
+[data-reveal] {
+  opacity: 0;
+  filter: blur(7px);
+  transition:
+    opacity .9s var(--ease),
+    transform .9s var(--ease),
+    filter .9s var(--ease);
+  transition-delay: var(--delay, 0ms);
+  will-change: opacity, transform, filter;
+}
+
+[data-reveal="left"] {
+  transform: translate3d(-82px, 0, 0);
+}
+
+[data-reveal="right"] {
+  transform: translate3d(82px, 0, 0);
+}
+
+[data-reveal="up"] {
+  transform: translate3d(0, 72px, 0);
+}
+
+[data-reveal="zoom"] {
+  transform: scale(.92) translate3d(0, 40px, 0);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+@keyframes floatRobot {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-13px); }
+}
+
+@keyframes orbitPulse {
+  0%, 100% { opacity: .74; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+@keyframes heroZoom {
+  from { transform: scale(1.06); }
+  to { transform: scale(1.02); }
+}
+
+@keyframes btnShine {
+  0% { left: -60%; opacity: 0; }
+  22% { opacity: .95; }
+  100% { left: 130%; opacity: 0; }
+}
+
+@keyframes lineFlow {
+  from { background-position: 0% 50%; }
+  to { background-position: 220% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1120px) {
+  .nav {
+    display: none;
+  }
+
+  .header-cta {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .hero-layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-copy p,
+  .hero-mini-features {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-mini-features {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 620px;
+  }
+
+  .hero-robot {
+    min-height: auto;
+  }
+
+  .hero-info-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .customer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .process-grid::before {
+    display: none;
+  }
+}
+
+@media (max-width: 820px) {
+  .rent-container,
+  .section-head {
+    width: min(100% - 32px, 560px);
+  }
+
+  .rent-hero {
+    padding: 50px 0 52px;
+  }
+
+  .hero-copy h1 {
+    font-size: 39px;
+  }
+
+  .hero-copy p {
+    font-size: 14px;
+  }
+
+  .hero-mini-features {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    padding: 4px 4px 14px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .hero-mini-features::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hero-mini-features article {
+    flex: 0 0 140px;
+    scroll-snap-align: start;
+  }
+
+  .hero-info-cards,
+  .why-rent-grid,
+  .can-do-grid,
+  .note-grid,
+  .faq-grid,
+  .cta-box {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-info-cards article {
+    text-align: left;
+  }
+
+  .rent-section {
+    padding: 56px 0;
+  }
+
+  .why-rent-left img {
+    width: 100%;
+  }
+
+  .feature-grid,
+  .customer-grid,
+  .package-grid,
+  .process-grid {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    padding: 4px 4px 18px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .feature-grid::-webkit-scrollbar,
+  .customer-grid::-webkit-scrollbar,
+  .package-grid::-webkit-scrollbar,
+  .process-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .feature-card {
+    flex: 0 0 82vw;
+    grid-template-columns: 128px 1fr;
+    scroll-snap-align: start;
+  }
+
+  .feature-card img {
+    width: 128px;
+    height: 130px;
+  }
+
+  .customer-grid article,
+  .package-grid article,
+  .process-grid article {
+    flex: 0 0 74vw;
+    scroll-snap-align: start;
+  }
+
+  .process-grid article {
+    padding: 22px;
+    border-radius: 22px;
+    background: #fff;
+    border: 1px solid var(--line);
+    box-shadow: var(--soft-shadow);
+  }
+
+  .mosaic {
+    grid-template-columns: 1fr;
+  }
+
+  .mosaic img {
+    height: 230px;
+  }
+
+  .cta-box {
+    padding: 34px 24px;
+    text-align: center;
+  }
+
+  .cta-box .hero-actions {
+    justify-content: center;
+  }
+
+  .cta-box img {
+    max-height: 250px;
+  }
+
+  [data-reveal="left"],
+  [data-reveal="right"] {
+    transform: translate3d(0, 58px, 0);
+  }
+}
+
+@media (max-width: 520px) {
+  .header-inner {
+    width: calc(100% - 28px);
+  }
+
+  .brand-mark {
+    width: 48px;
+    height: 34px;
+    font-size: 17px;
+  }
+
+  .brand {
+    font-size: 10px;
+  }
+
+  .hero-copy h1,
+  .section-head h2,
+  .why-rent-left h2,
+  .can-copy h2,
+  .note-grid h2 {
+    font-size: 30px;
+  }
+
+  .feature-card {
+    flex: 0 0 86vw;
+    grid-template-columns: 1fr;
+  }
+
+  .feature-card img {
+    width: 100%;
+    height: 160px;
+  }
+
+  .customer-grid article,
+  .package-grid article,
+  .process-grid article {
+    flex-basis: 82vw;
+  }
+}
+
+
+/* =========================================================
+   HEADER GIỐNG INDEX - lấy từ index.html/styles.css
+   Dán cuối file để ghi đè header cũ của trang thuê robot phục vụ
+   ========================================================= */
+
+/* Ẩn header cũ nếu còn class cũ trong file */
+.site-header {
+  display: none !important;
+}
+
+/* Thanh line + header index */
+.top-line {
+  height: 4px !important;
+  background: linear-gradient(90deg, #012774, #00a6e5) !important;
+}
+
+.header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  background: rgba(255, 255, 255, .94) !important;
+  border-bottom: 1px solid #dbe6f7 !important;
+  backdrop-filter: blur(16px) !important;
+}
+
+.header-inner {
+  width: min(1220px, calc(100% - 32px)) !important;
+  margin: auto !important;
+  min-height: 70px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 24px !important;
+}
+
+.logo {
+  display: inline-flex !important;
+  align-items: center !important;
+  flex: 0 0 auto !important;
+}
+
+.logo img {
+  width: 150px !important;
+  height: 52px !important;
+  object-fit: contain !important;
+}
+
+.header .nav {
+  flex: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 18px !important;
+  font-family: "Montserrat", "Segoe UI", "Noto Sans", Arial, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 850 !important;
+  color: #0b1b33 !important;
+}
+
+.header .nav a {
+  position: relative !important;
+  padding: 24px 0 !important;
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.header .nav a::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 17px !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, #012774, #00a6e5) !important;
+  border-radius: 99px !important;
+  transform: scaleX(0) !important;
+  transform-origin: left !important;
+  transition: .22s !important;
+}
+
+.header .nav a:hover::after {
+  transform: scaleX(1) !important;
+}
+
+.login {
+  border: 0 !important;
+  border-radius: 999px !important;
+  min-height: 44px !important;
+  padding: 11px 20px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: 900 !important;
+  color: #fff !important;
+  background: linear-gradient(135deg, #012774, #003194) !important;
+  box-shadow: 0 12px 26px rgba(1, 39, 116, .22) !important;
+  transition: .2s !important;
+}
+
+.login:hover {
+  transform: translateY(-2px) !important;
+}
+
+/* Dropdown giống index */
+.nav-item {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.nav-item > a {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.has-dropdown > a::before {
+  content: "▾" !important;
+  order: 2 !important;
+  font-size: 11px !important;
+  color: #00a6e5 !important;
+  transform: translateY(1px) !important;
+}
+
+.dropdown-menu,
+.sub-menu {
+  position: absolute !important;
+  list-style: disc !important;
+  min-width: 260px !important;
+  margin: 0 !important;
+  padding: 14px 18px 14px 30px !important;
+  background: #ffffff !important;
+  border: 1px solid #dbe6f7 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 18px 48px rgba(1, 39, 116, .13) !important;
+  color: #012774 !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transition: .2s ease !important;
+  z-index: 1100 !important;
+}
+
+.dropdown-menu {
+  top: calc(100% - 6px) !important;
+  left: 50% !important;
+  transform: translate(-50%, 10px) !important;
+}
+
+.nav-item:hover > .dropdown-menu,
+.nav-item:focus-within > .dropdown-menu {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translate(-50%, 0) !important;
+}
+
+.dropdown-menu a,
+.sub-menu a {
+  display: block !important;
+  padding: 8px 0 !important;
+  color: #012774 !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+}
+
+.dropdown-menu a::after,
+.sub-menu a::after {
+  display: none !important;
+}
+
+.dropdown-menu a:hover,
+.sub-menu a:hover {
+  color: #00a6e5 !important;
+}
+
+.dropdown-submenu {
+  position: relative !important;
+}
+
+.dropdown-submenu > a::before {
+  content: "›" !important;
+  float: right !important;
+  color: #00a6e5 !important;
+  font-size: 18px !important;
+  line-height: 1 !important;
+}
+
+.dropdown-submenu::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  right: -12px !important;
+  width: 14px !important;
+  height: 100% !important;
+}
+
+.sub-menu {
+  top: -12px !important;
+  left: calc(100% - 2px) !important;
+  transform: translateX(0) !important;
+  min-width: 220px !important;
+}
+
+.dropdown-submenu:hover > .sub-menu,
+.dropdown-submenu:focus-within > .sub-menu {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translateX(0) !important;
+}
+
+/* Hamburger + mobile menu giống index */
+.hamburger {
+  display: none !important;
+  width: 44px !important;
+  height: 44px !important;
+  border: 1px solid #dbe6f7 !important;
+  border-radius: 12px !important;
+  background: #fff !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 5px !important;
+}
+
+.hamburger span {
+  width: 23px !important;
+  height: 2px !important;
+  border-radius: 99px !important;
+  background: #012774 !important;
+}
+
+.menu-backdrop {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 1900 !important;
+  background: rgba(2, 8, 23, .52) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: .24s !important;
+}
+
+.mobile-menu {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  right: auto !important;
+  z-index: 2000 !important;
+  width: min(90vw, 390px) !important;
+  height: auto !important;
+  max-height: calc(100dvh - 36px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 20px !important;
+  overflow: hidden !important;
+  background: #fff !important;
+  border: 1px solid #dbe6f7 !important;
+  border-radius: 24px !important;
+  box-shadow: 0 28px 88px rgba(1, 39, 116, .28) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translate(-50%, -46%) scale(.96) !important;
+  transition: .24s !important;
+}
+
+body.menu-open {
+  overflow: hidden !important;
+}
+
+body.menu-open .menu-backdrop {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+body.menu-open .mobile-menu {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translate(-50%, -50%) scale(1) !important;
+}
+
+.mobile-head {
+  position: relative !important;
+  padding-right: 48px !important;
+  padding-bottom: 17px !important;
+  border-bottom: 1px solid #dbe6f7 !important;
+}
+
+.mobile-head b {
+  display: block !important;
+  color: #012774 !important;
+  font-size: 20px !important;
+  font-weight: 950 !important;
+}
+
+.mobile-head span {
+  display: block !important;
+  color: #64748b !important;
+  font-size: 13px !important;
+  margin-top: 4px !important;
+}
+
+.close-menu {
+  position: absolute !important;
+  top: -4px !important;
+  right: 0 !important;
+  width: 38px !important;
+  height: 38px !important;
+  border: 1px solid #dbe6f7 !important;
+  border-radius: 12px !important;
+  color: #012774 !important;
+  background: #f8fbff !important;
+  font-size: 26px !important;
+  line-height: 1 !important;
+}
+
+.mobile-links {
+  display: grid !important;
+  gap: 10px !important;
+  padding: 18px 0 !important;
+  overflow: auto !important;
+}
+
+.mobile-links a,
+.mobile-links button {
+  width: 100% !important;
+  min-height: 47px !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 16px !important;
+  border: 1px solid #dbe6f7 !important;
+  border-radius: 14px !important;
+  background: #f8fbff !important;
+  color: #012774 !important;
+  font-weight: 900 !important;
+  text-align: left !important;
+}
+
+.mobile-links button {
+  justify-content: center !important;
+  color: #fff !important;
+  background: linear-gradient(135deg, #012774, #00a6e5) !important;
+  border-color: transparent !important;
+}
+
+.mobile-links .mobile-sub {
+  min-height: 38px !important;
+  padding-left: 28px !important;
+  background: #ffffff !important;
+  color: #31527f !important;
+  font-size: 14px !important;
+  font-weight: 750 !important;
+}
+
+.company-info {
+  margin-top: auto !important;
+  padding-top: 16px !important;
+  border-top: 1px solid #dbe6f7 !important;
+  color: #475569 !important;
+  font-size: 13px !important;
+}
+
+.company-info b {
+  color: #012774 !important;
+  display: block !important;
+}
+
+.company-info p {
+  margin: 6px 0 !important;
+}
+
+/* Ẩn nút CTA cũ của trang thue-phuc-vu nếu còn */
+.header-cta {
+  display: none !important;
+}
+
+/* Không để style menu cũ ảnh hưởng */
+.brand,
+.brand-mark,
+.brand-text {
+  display: none !important;
+}
+
+@media(max-width:1120px) {
+  .header .nav {
+    gap: 12px !important;
+    font-size: 14px !important;
+  }
+
+  .dropdown-menu a,
+  .sub-menu a {
+    font-size: 13px !important;
+  }
+}
+
+@media(max-width:820px) {
+  .header-inner {
+    justify-content: flex-start !important;
+    gap: 10px !important;
+    min-height: 68px !important;
+  }
+
+  .logo img {
+    width: 146px !important;
+  }
+
+  .hamburger {
+    display: inline-flex !important;
+    margin-left: auto !important;
+  }
+
+  .header .nav,
+  .login {
+    display: none !important;
+  }
+
+  .mobile-menu {
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100dvh !important;
+    max-height: none !important;
+    padding: 22px !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    overflow-y: auto !important;
+    transform: translateX(100%) !important;
+    opacity: 1 !important;
+    visibility: hidden !important;
+  }
+
+  body.menu-open .mobile-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateX(0) !important;
+  }
+
+  .mobile-links {
+    padding: 24px 0 !important;
+  }
+
+  .company-info {
+    margin-top: 20px !important;
+  }
+}
+
+/* =========================================================
+   FIX KHOẢNG CÁCH DROPDOWN HEADER
+   Giảm khoảng cách giữa các dòng trong menu xổ xuống
+   ========================================================= */
+.header .nav .dropdown-menu,
+.header .nav .sub-menu {
+  padding: 8px 18px 8px 26px !important;
+  gap: 0 !important;
+}
+
+.header .nav .dropdown-menu a,
+.header .nav .sub-menu a {
+  padding: 8px 0 !important;
+  margin: 0 !important;
+  min-height: auto !important;
+  line-height: 1.15 !important;
+  display: block !important;
+}
+
+.header .nav .dropdown-menu li,
+.header .nav .sub-menu li {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.15 !important;
+}
+
+
+
+/* dien thoai */
+
+/* ================= MOBILE HERO - THUE PHUC VU ================= */
+
+@media (max-width: 820px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .rent-service-page {
+    overflow-x: hidden;
+  }
+
+  .rent-hero {
+    min-height: auto;
+    padding: 34px 0 42px;
+    overflow: hidden;
+    background: #f7fbff;
+  }
+
+  .rent-hero .hero-bg {
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(245,250,255,.92) 55%, rgba(235,247,255,.96) 100%),
+      url("./assets/giaohang.png") center top / cover no-repeat;
+    transform: none;
+  }
+
+  .rent-hero .orbit-a,
+  .rent-hero .orbit-b {
+    display: none;
+  }
+
+  .rent-hero .hero-layout {
+    width: calc(100% - 28px);
+    max-width: 430px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    text-align: center;
+  }
+
+  .rent-hero .hero-copy {
+    width: 100%;
+    max-width: 100%;
+    order: 1;
+  }
+
+  .rent-hero .breadcrumb {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto 12px;
+    font-size: 11px;
+    line-height: 1.45;
+    letter-spacing: .05em;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+  .rent-hero .hero-copy h1 {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    font-size: 26px;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+  .rent-hero .hero-copy p {
+    width: 100%;
+    max-width: 100%;
+    margin: 16px auto 0;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: #526b8b;
+  }
+
+  .rent-hero .hero-actions {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .rent-hero .hero-actions .btn {
+    min-height: 44px;
+    padding: 11px 16px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .rent-hero .hero-mini-features {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 24px;
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 4px 4px 14px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .rent-hero .hero-mini-features::-webkit-scrollbar {
+    display: none;
+  }
+
+  .rent-hero .hero-mini-features article {
+    flex: 0 0 124px;
+    min-height: 92px;
+    padding: 13px 8px;
+    border-radius: 18px;
+    scroll-snap-align: start;
+  }
+
+  .rent-hero .hero-mini-features span {
+    font-size: 23px;
+    margin-bottom: 6px;
+  }
+
+  .rent-hero .hero-mini-features b {
+    font-size: 12px;
+    line-height: 1.3;
+  }
+
+  .rent-hero .hero-robot {
+    order: 2;
+    width: 100%;
+    min-height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4px;
+    padding: 0;
+  }
+
+  .rent-hero .hero-robot picture {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    max-width: 315px;
+    margin: 0 auto;
+  }
+
+  .rent-hero .hero-robot img {
+    width: 100%;
+    max-width: 315px;
+    max-height: 390px;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+
+  .rent-hero .robot-halo {
+    width: 230px;
+    height: 255px;
+    border-radius: 28px;
+    bottom: 0;
+  }
+
+  .rent-hero .robot-card-bg {
+    width: 190px;
+    height: 190px;
+    bottom: 6px;
+  }
+
+  .rent-hero .hero-info-cards {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .rent-hero {
+    padding-top: 26px;
+    padding-bottom: 34px;
+  }
+
+  .rent-hero .hero-layout {
+    width: calc(100% - 24px);
+    max-width: 390px;
+  }
+
+  .rent-hero .hero-copy h1 {
+    font-size: 23px;
+    line-height: 1.16;
+  }
+
+  .rent-hero .hero-copy p {
+    font-size: 13px;
+    line-height: 1.62;
+  }
+
+  .rent-hero .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .rent-hero .hero-actions .btn {
+    width: 220px;
+    max-width: 100%;
+  }
+
+  .rent-hero .hero-mini-features article {
+    flex-basis: 118px;
+  }
+
+  .rent-hero .hero-robot picture,
+  .rent-hero .hero-robot img {
+    max-width: 285px;
+  }
+}
+
+/* FIX: cho 2 nút hero nằm song song trên mobile */
+@media (max-width: 520px) {
+  .rent-hero .hero-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 10px !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+  }
+
+  .rent-hero .hero-actions .btn {
+    width: calc((100% - 10px) / 2) !important;
+    max-width: 160px !important;
+    min-width: 0 !important;
+    min-height: 44px !important;
+    padding: 11px 8px !important;
+    font-size: 12px !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+  }
+}
+
+/* Ẩn ảnh robot mobile trên PC */
+.hero-robot-mobile {
+  display: none;
+}
+
+/* Mobile: đưa ảnh robot xuống dưới đoạn văn */
+@media (max-width: 820px) {
+  .hero-robot-mobile {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 18px auto 20px !important;
+  }
+
+  .hero-robot-mobile img {
+    width: 250px !important;
+    max-width: 72vw !important;
+    height: auto !important;
+    object-fit: contain !important;
+    filter: drop-shadow(0 20px 34px rgba(1, 39, 116, .16));
+  }
+
+  /* Ẩn ảnh robot cũ trên mobile để không bị lặp */
+  .rent-hero .hero-layout > .hero-robot {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-robot-mobile img {
+    width: 235px !important;
+    max-width: 76vw !important;
+  }
+}
+
+/* MOBILE: đảo vị trí nút và ô tính năng */
+@media (max-width: 820px) {
+  .rent-hero .hero-copy {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .rent-hero .hero-actions {
+    order: 5 !important;
+    margin-top: 22px !important;
+  }
+
+  .rent-hero .hero-mini-features {
+    order: 4 !important;
+    margin-top: 24px !important;
+  }
+}
+
+/* FIX MOBILE: ảnh mosaic thành hàng ngang */
+@media (max-width: 820px) {
+  .can-do .mosaic {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 14px !important;
+    overflow-x: auto !important;
+    padding: 4px 4px 18px !important;
+    scroll-snap-type: x mandatory !important;
+    scrollbar-width: none !important;
+  }
+
+  .can-do .mosaic::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .can-do .mosaic img {
+    flex: 0 0 78vw !important;
+    width: 78vw !important;
+    height: 220px !important;
+    object-fit: cover !important;
+    border-radius: 22px !important;
+    scroll-snap-align: start !important;
+  }
+}
+
+/* MOBILE: căn trái phần chữ hero */
+@media (max-width: 820px) {
+  .rent-hero .hero-layout {
+    text-align: left !important;
+    align-items: flex-start !important;
+  }
+
+  .rent-hero .hero-copy {
+    text-align: left !important;
+    align-items: flex-start !important;
+  }
+
+  .rent-hero .breadcrumb,
+  .rent-hero .hero-copy h1,
+  .rent-hero .hero-copy p {
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .rent-hero .breadcrumb {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .rent-hero .hero-copy h1 {
+    width: 100% !important;
+  }
+
+  .rent-hero .hero-copy p {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+@media (max-width: 820px) {
+  .rent-hero .hero-copy p {
+    text-align: justify !important;
+    text-align-last: left !important;
+    line-height: 1.75 !important;
+    letter-spacing: 0 !important;
+    word-spacing: 0.5px !important;
+  }
+}
+
+/* =========================================================
+   FIX FEATURE SECTION - GIỐNG ROBOT-PHUC-VU.HTML
+   DÁN CUỐI FILE thue-phuc-vu.css
+========================================================= */
+
+/* Section */
+#features.serve-section {
+  padding: 74px 0 !important;
+  background: linear-gradient(180deg, #f4fbff 0%, #eef8ff 100%) !important;
+}
+
+#features .section-head {
+  width: min(820px, calc(100% - 48px)) !important;
+  margin: 0 auto 40px !important;
+  text-align: center !important;
+}
+
+#features .section-head h2 {
+  margin: 0 !important;
+  color: #002d84 !important;
+  font-size: clamp(30px, 3.1vw, 46px) !important;
+  line-height: 1.12 !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.04em !important;
+}
+
+#features .section-head p {
+  margin: 13px auto 0 !important;
+  color: #5e7394 !important;
+  font-size: 16px !important;
+  max-width: 700px !important;
+}
+
+/* Container */
+#features .serve-container {
+  width: min(1240px, calc(100% - 48px)) !important;
+  margin: 0 auto !important;
+}
+
+/* Grid PC: 3 ô / hàng */
+#features .feature-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+  overflow: visible !important;
+  padding: 0 !important;
+}
+
+/* Card */
+#features .feature-card {
+  position: relative !important;
+  display: block !important;
+  min-height: 328px !important;
+  padding: 28px 20px !important;
+  border-radius: 22px !important;
+  overflow: hidden !important;
+  background: #ffffff !important;
+  border: 1px solid #dbe8f8 !important;
+  box-shadow: 0 12px 32px rgba(1, 39, 116, 0.08) !important;
+  transition: transform .28s cubic-bezier(.22, 1, .36, 1),
+              box-shadow .28s cubic-bezier(.22, 1, .36, 1),
+              border-color .28s cubic-bezier(.22, 1, .36, 1) !important;
+}
+
+/* Xóa hiệu ứng ánh sáng cũ */
+#features .feature-card::before {
+  display: none !important;
+}
+
+/* Lớp phủ trắng bên trái giống mẫu */
+#features .feature-card::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.98) 0%,
+    rgba(255,255,255,0.93) 38%,
+    rgba(255,255,255,0.62) 55%,
+    rgba(255,255,255,0.18) 76%,
+    rgba(255,255,255,0.04) 100%
+  ) !important;
+}
+
+#features .feature-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 22px 55px rgba(1, 39, 116, 0.14) !important;
+  border-color: rgba(0,166,229,.38) !important;
+}
+
+/* Ảnh full nền card, không bị cắt thành ô nhỏ */
+#features .feature-card > img {
+  position: absolute !important;
+  inset: 0 !important;
+  right: auto !important;
+  bottom: auto !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: right center !important;
+  border-radius: inherit !important;
+  opacity: 1 !important;
+  filter: none !important;
+  z-index: 1 !important;
+  transform: none !important;
+}
+
+/* Hover không làm ảnh lệch sai */
+#features .feature-card:hover > img {
+  transform: scale(1.04) !important;
+}
+
+/* Khối chữ bên trái */
+#features .feature-card > div {
+  position: relative !important;
+  z-index: 3 !important;
+  width: 47% !important;
+  max-width: 47% !important;
+  padding-right: 8px !important;
+}
+
+/* Tiêu đề */
+#features .feature-card h3 {
+  position: relative !important;
+  z-index: 3 !important;
+  margin: 0 0 14px !important;
+  color: #0753d8 !important;
+  font-size: 18px !important;
+  line-height: 1.28 !important;
+  font-weight: 950 !important;
+  text-transform: uppercase !important;
+}
+
+/* Đoạn văn căn đều */
+#features .feature-card p {
+  position: relative !important;
+  z-index: 3 !important;
+  margin: 0 !important;
+  max-width: 100% !important;
+  color: #5e7394 !important;
+  font-size: 13px !important;
+  line-height: 1.62 !important;
+  text-align: justify !important;
+  text-align-last: left !important;
+}
+
+/* Số thứ tự */
+#features .feature-card > span {
+  position: absolute !important;
+  left: 20px !important;
+  bottom: 16px !important;
+  z-index: 3 !important;
+  color: rgba(0,45,132,.10) !important;
+  font-size: 30px !important;
+  font-weight: 950 !important;
+}
+
+/* Nếu HTML chưa có span thì không ảnh hưởng */
+
+/* Tablet */
+@media (max-width: 1100px) {
+  #features .feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Mobile: trượt ngang giống robot-phuc-vu */
+@media (max-width: 820px) {
+  #features.serve-section {
+    padding: 54px 0 !important;
+  }
+
+  #features .serve-container,
+  #features .section-head {
+    width: min(100% - 32px, 560px) !important;
+  }
+
+  #features .feature-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    gap: 14px !important;
+    padding: 4px 4px 18px !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+
+  #features .feature-grid::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  #features .feature-card {
+    flex: 0 0 82vw !important;
+    max-width: 330px !important;
+    min-height: 300px !important;
+    scroll-snap-align: start !important;
+  }
+
+  #features .feature-card > div {
+    width: 50% !important;
+    max-width: 50% !important;
+  }
+
+  #features .feature-card h3 {
+    font-size: 15px !important;
+  }
+
+  #features .feature-card p {
+    font-size: 12.5px !important;
+    line-height: 1.55 !important;
+  }
+}
+
+/* =========================================================
+   APPLICATION SECTION - GIỐNG robot-phuc-vu.html
+========================================================= */
+
+.app-section {
+  background: #fff !important;
+}
+
+.app-section .section-head {
+  width: min(820px, calc(100% - 48px)) !important;
+  margin: 0 auto 40px !important;
+  text-align: center !important;
+}
+
+.app-section .section-head h2 {
+  margin: 0 !important;
+  color: #002d84 !important;
+  font-size: clamp(34px, 4vw, 54px) !important;
+  line-height: 1.08 !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.04em !important;
+}
+
+.app-section .serve-container {
+  width: min(1240px, calc(100% - 48px)) !important;
+  margin: 0 auto !important;
+}
+
+/* PC: 4 card ngang giống mẫu */
+.app-section .app-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 22px !important;
+  overflow: visible !important;
+  padding: 0 !important;
+}
+
+.app-section .app-card {
+  border-radius: 22px !important;
+  overflow: hidden !important;
+  background: #fff !important;
+  border: 1px solid #dbe8f8 !important;
+  box-shadow: 0 12px 32px rgba(1, 39, 116, 0.08) !important;
+  transition: transform .28s ease, box-shadow .28s ease !important;
+}
+
+.app-section .app-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 22px 55px rgba(1, 39, 116, 0.14) !important;
+}
+
+.app-section .app-card img {
+  width: 100% !important;
+  height: 190px !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+.card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #e6f5ff, #fff);
+  color: var(--blue-700);
+  font-size: 24px;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+
+
+.app-section .app-card h3 {
+  margin: 20px 20px 10px !important;
+  color: #002d84 !important;
+  font-size: 18px !important;
+  line-height: 1.25 !important;
+  font-weight: 950 !important;
+  text-transform: uppercase !important;
+}
+
+.app-section .app-card p {
+  margin: 0 20px 24px !important;
+  color: #607797 !important;
+  font-size: 14px !important;
+  line-height: 1.75 !important;
+  text-align: left !important;
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+  .app-section .app-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Mobile: trượt ngang giống robot-phuc-vu */
+@media (max-width: 820px) {
+  .app-section {
+    padding: 54px 0 !important;
+  }
+
+  .app-section .serve-container,
+  .app-section .section-head {
+    width: min(100% - 32px, 560px) !important;
+  }
+
+  .app-section .app-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    gap: 14px !important;
+    padding: 4px 4px 18px !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+
+  .app-section .app-grid::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .app-section .app-card {
+    flex: 0 0 82vw !important;
+    max-width: 330px !important;
+    scroll-snap-align: start !important;
+  }
+
+  .app-section .app-card img {
+    height: 180px !important;
+  }
+
+  .app-section .app-card h3 {
+    font-size: 16px !important;
+  }
+
+  .app-section .app-card p {
+    font-size: 13px !important;
+    line-height: 1.65 !important;
+  }
+
+  .card-icon {
+    width: 46px;
+    height: 46px;
+    font-size: 20px;
+  }
+
+  .card-icon {
+    width: 42px !important;
+    height: 42px !important;
+    font-size: 19px !important;
+  }
+}
+
+.serve-section {
+    padding: 74px 0;
+    position: relative;
+}
+
+/* =========================================================
+   PROCESS - SẮP XẾP GIỐNG ẢNH MẪU + ICON BẰNG NHAU
+========================================================= */
+
+#process.process {
+  padding: 86px 0 84px !important;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(0,166,229,.12), transparent 38%),
+    linear-gradient(180deg, #f4fbff 0%, #ffffff 100%) !important;
+}
+
+#process .section-head {
+  margin-bottom: 48px !important;
+}
+
+#process .section-head h2 {
+  font-size: clamp(34px, 3.5vw, 58px) !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.04em !important;
+  text-align: center !important;
+}
+
+/* Nếu có chữ PROCESS phía trên */
+#process .section-head span {
+  display: block !important;
+  color: #0a6fe8 !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.18em !important;
+  text-align: center !important;
+  margin-bottom: 10px !important;
+}
+
+/* Grid đúng 6 bước */
+#process .process-grid {
+  display: grid !important;
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  gap: 28px !important;
+  position: relative !important;
+  overflow: visible !important;
+  padding: 0 !important;
+}
+
+/* Đường chấm ngang phía sau số */
+#process .process-grid::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 26px !important;
+  left: 7% !important;
+  right: 7% !important;
+  border-top: 3px dotted #c8d8f0 !important;
+  z-index: 0 !important;
+}
+
+/* Mỗi bước */
+#process .process-grid article {
+  position: relative !important;
+  z-index: 2 !important;
+  text-align: center !important;
+  padding: 0 8px !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Số thứ tự tròn */
+#process .process-grid article > span {
+  width: 58px !important;
+  height: 58px !important;
+  margin: 0 auto 26px !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 50% !important;
+  color: #fff !important;
+  background: linear-gradient(135deg, #005bd8, #007bff) !important;
+  font-size: 20px !important;
+  font-weight: 950 !important;
+  box-shadow: 0 12px 24px rgba(0, 91, 216, .28) !important;
+}
+
+/* Khung icon giống ảnh */
+#process .process-grid article > img {
+  width: 108px !important;
+  height: 108px !important;
+  margin: 0 auto 26px !important;
+  padding: 22px !important;
+  object-fit: contain !important;
+  border-radius: 22px !important;
+  background: #ffffff !important;
+  border: 1px solid #dbe8f8 !important;
+  box-shadow: 0 14px 32px rgba(1, 39, 116, .10) !important;
+}
+
+/* Tiêu đề */
+#process .process-grid article h3 {
+  min-height: 58px !important;
+  margin: 0 auto 14px !important;
+  color: #002d84 !important;
+  font-size: 18px !important;
+  line-height: 1.28 !important;
+  font-weight: 950 !important;
+  text-transform: uppercase !important;
+}
+
+/* Mô tả */
+#process .process-grid article p {
+  margin: 0 auto !important;
+  max-width: 250px !important;
+  color: #5e6470 !important;
+  font-size: 15px !important;
+  line-height: 1.65 !important;
+  text-align: center !important;
+}
+
+/* Tablet */
+@media (max-width: 1200px) {
+  #process .process-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 42px 26px !important;
+  }
+
+  #process .process-grid::before {
+    display: none !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 820px) {
+  #process .process-grid {
+    display: flex !important;
+    gap: 16px !important;
+    overflow-x: auto !important;
+    padding: 4px 4px 18px !important;
+    scroll-snap-type: x mandatory !important;
+    scrollbar-width: none !important;
+  }
+
+  #process .process-grid::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  #process .process-grid article {
+    flex: 0 0 78vw !important;
+    max-width: 310px !important;
+    padding: 24px 18px !important;
+    border-radius: 24px !important;
+    background: #fff !important;
+    border: 1px solid #dbe8f8 !important;
+    box-shadow: 0 12px 32px rgba(1, 39, 116, .08) !important;
+    scroll-snap-align: start !important;
+  }
+
+  #process .process-grid article > span {
+    margin-bottom: 18px !important;
+  }
+
+  #process .process-grid article > img {
+    width: 92px !important;
+    height: 92px !important;
+    padding: 18px !important;
+    margin-bottom: 18px !important;
+  }
+
+  #process .process-grid article h3 {
+    min-height: auto !important;
+    font-size: 16px !important;
+  }
+
+  #process .process-grid article p {
+    font-size: 13.5px !important;
+  }
+}
+
+/* ===============================
+   HERO CARDS GIỐNG ẢNH MẪU
+================================ */
+
+.hero-cards {
+  display: grid !important;
+  gap: 22px !important;
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+.hero-cards article {
+  display: grid !important;
+  grid-template-columns: 58px 1fr !important;
+  align-items: center !important;
+  gap: 18px !important;
+
+  min-height: 108px !important;
+  padding: 22px 28px !important;
+  border-radius: 24px !important;
+
+  background: rgba(255, 255, 255, 0.88) !important;
+  border: 1px solid rgba(220, 233, 248, 0.95) !important;
+  box-shadow: 0 18px 45px rgba(1, 39, 116, 0.12) !important;
+  backdrop-filter: blur(14px) !important;
+
+  transition: transform .28s ease, box-shadow .28s ease !important;
+}
+
+.hero-cards article:hover {
+  transform: translateX(-8px) !important;
+  box-shadow: 0 26px 65px rgba(1, 39, 116, 0.18) !important;
+}
+
+.hero-cards .card-icon {
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 14px !important;
+  display: grid !important;
+  place-items: center !important;
+
+  background: #ffffff !important;
+  border: 1px solid #e2eefb !important;
+  box-shadow: 0 8px 18px rgba(1, 39, 116, 0.10) !important;
+  overflow: hidden !important;
+}
+
+.hero-cards .card-icon img {
+  width: 34px !important;
+  height: 34px !important;
+  object-fit: contain !important;
+}
+
+.hero-cards h3 {
+  margin: 0 0 6px !important;
+  color: #002d84 !important;
+  font-size: 17px !important;
+  line-height: 1.25 !important;
+  font-weight: 950 !important;
+  text-transform: uppercase !important;
+}
+
+.hero-cards p {
+  margin: 0 !important;
+  color: #607797 !important;
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+
+/* Mobile */
+@media (max-width: 820px) {
+  .hero-cards {
+    width: 100% !important;
+    max-width: 420px !important;
+    margin: 22px auto 0 !important;
+    gap: 18px !important;
+  }
+
+  .hero-cards article {
+    min-height: 104px !important;
+    padding: 20px 22px !important;
+    border-radius: 22px !important;
+    grid-template-columns: 54px 1fr !important;
+  }
+
+  .hero-cards h3 {
+    font-size: 15px !important;
+  }
+
+  .hero-cards p {
+    font-size: 13px !important;
+  }
+}
+
+p1 {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+    text-align: justify;
+    text-align-last: left;
+}
+
+p2 {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+    text-align: justify;
+    text-align-last: left;
+}
+
+
+.app-section .app-card p2 {
+    margin: 0 20px 24px !important;
+    color: #607797 !important;
+    font-size: 14px !important;
+    line-height: 1.75 !important;
+}
+
+
+.why-rent-left p1 {
+    color: var(--muted);
+    margin: 0 0 22px;
+}
+
+/* ===============================
+   FAQ THUÊ ROBOT PHỤC VỤ - GIỐNG MẪU DẤU + TRÒN
+================================ */
+
+.faq-section {
+  background: #eef9ff !important;
+}
+
+.faq-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 18px 22px !important;
+}
+
+.faq-item {
+  border-radius: 20px !important;
+  background: #fff !important;
+  border: 1px solid #dbe8f8 !important;
+  box-shadow: 0 12px 32px rgba(1, 39, 116, 0.08) !important;
+  overflow: hidden !important;
+}
+
+/* Câu hỏi */
+.faq-item button {
+  position: relative !important;
+  width: 100% !important;
+  min-height: 68px !important;
+  padding: 18px 78px 18px 22px !important;
+  border: 0 !important;
+  background: transparent !important;
+  color: #002d84 !important;
+  text-align: left !important;
+  font-size: 16px !important;
+  line-height: 1.45 !important;
+  font-weight: 950 !important;
+}
+
+/* Dấu + tròn bên phải */
+.faq-item button::after {
+  content: "+" !important;
+  position: absolute !important;
+  right: 18px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  background: #0074dd !important;
+  color: #fff !important;
+  font-size: 30px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  box-shadow: 0 10px 24px rgba(0, 116, 221, 0.28) !important;
+}
+
+/* Khi mở thì thành dấu - */
+.faq-item.open button::after {
+  content: "−" !important;
+  font-size: 32px !important;
+}
+
+/* Nội dung trả lời */
+.faq-answer {
+  max-height: 0 !important;
+  overflow: hidden !important;
+  transition: max-height .35s ease !important;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 420px !important;
+}
+
+.faq-answer p {
+  margin: 0 !important;
+  padding: 0 22px 22px !important;
+  color: #607797 !important;
+  font-size: 14px !important;
+  line-height: 1.75 !important;
+  text-align: justify !important;
+  text-align-last: left !important;
+}
+
+/* =====================================================
+   CONTACT SECTION - GIỐNG TRANG THUE-ROBOT
+===================================================== */
+
+.contact-section {
+  background:
+    radial-gradient(circle at 10% 20%, rgba(104, 215, 255, .18), transparent 25rem),
+    radial-gradient(circle at 90% 20%, rgba(1, 39, 116, .12), transparent 23rem),
+    #fff !important;
+}
+
+.section1.contact-section {
+  padding: 76px 0 !important;
+}
+
+.contact-card {
+  display: grid !important;
+  grid-template-columns: .9fr 1.1fr !important;
+  gap: 34px !important;
+  padding: clamp(26px, 4vw, 46px) !important;
+
+  border: 1px solid var(--line) !important;
+  border-radius: 20px !important;
+  background:
+    radial-gradient(circle at top right, rgba(0,166,229,.13), transparent 22rem),
+    #fff !important;
+  box-shadow: var(--soft-shadow) !important;
+}
+
+.contact-card h2 {
+  margin: 0 0 14px !important;
+  color: var(--primary) !important;
+  font-size: clamp(32px, 4vw, 52px) !important;
+  line-height: 1.04 !important;
+  font-weight: 950 !important;
+  letter-spacing: -.04em !important;
+  text-transform: uppercase !important;
+}
+
+.contact-card > div > p {
+  margin: 0 !important;
+  color: var(--muted) !important;
+  font-size: 16px !important;
+  line-height: 1.65 !important;
+}
+
+.contact-info {
+  margin-top: 24px !important;
+  padding: 18px !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 18px !important;
+  background: #f8fbff !important;
+}
+
+.contact-info p {
+  margin: 7px 0 !important;
+  color: var(--muted) !important;
+  font-size: 15px !important;
+  line-height: 1.65 !important;
+}
+
+.contact-info b {
+  color: var(--primary) !important;
+}
+
+.quote-form {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 14px !important;
+}
+
+.quote-form label {
+  display: grid !important;
+  gap: 7px !important;
+  color: var(--primary) !important;
+  font-size: 14px !important;
+  font-weight: 900 !important;
+}
+
+.quote-form input,
+.quote-form select,
+.quote-form textarea {
+  width: 100% !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 14px !important;
+  padding: 12px 14px !important;
+  outline: none !important;
+  background: #fff !important;
+  color: #0b2d66 !important;
+  font-family: inherit !important;
+  font-size: 14px !important;
+}
+
+.quote-form input:focus,
+.quote-form select:focus,
+.quote-form textarea:focus {
+  border-color: var(--blue) !important;
+  box-shadow: 0 0 0 4px rgba(0, 91, 216, .10) !important;
+}
+
+.quote-form textarea {
+  min-height: 110px !important;
+  resize: vertical !important;
+}
+
+.quote-form .wide {
+  grid-column: 1 / -1 !important;
+}
+
+.quote-form .btn.full {
+  width: 100% !important;
+  min-height: 50px !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  color: #fff !important;
+  background: linear-gradient(135deg, var(--primary), var(--blue)) !important;
+  box-shadow: 0 17px 38px rgba(0,61,170,.25) !important;
+  font-weight: 950 !important;
+}
+
+.form-msg {
+  min-height: 22px !important;
+  margin: 0 !important;
+  color: var(--primary) !important;
+  font-weight: 900 !important;
+}
+
+/* MOBILE */
+@media (max-width: 820px) {
+  .section1.contact-section {
+    padding: 52px 0 !important;
+  }
+
+  .contact-card {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    padding: 26px 20px !important;
+    border-radius: 22px !important;
+  }
+
+  .contact-card h2 {
+    font-size: 32px !important;
+    line-height: 1.08 !important;
+  }
+
+  .quote-form {
+    grid-template-columns: 1fr !important;
+  }
+
+  .quote-form .wide {
+    grid-column: auto !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .contact-card h2 {
+    font-size: 28px !important;
+  }
+
+  .contact-card > div > p,
+  .contact-info p {
+    font-size: 13.5px !important;
+  }
+
+  .quote-form input,
+  .quote-form select,
+  .quote-form textarea {
+    font-size: 13.5px !important;
+  }
+}
+
+/* =====================================================
+   FIX MOBILE ONLY - SECTION RENT HERO
+   Chỉ áp dụng cho <section class="rent-hero" id="home">
+===================================================== */
+
+/* FIX PC: khôi phục khung cho 3 tag trong rent hero */
+@media (min-width: 821px) {
+  .rent-hero .hero-mobile-tags {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    margin-top: 30px !important;
+    align-items: center !important;
+  }
+
+  .rent-hero .hero-mobile-tags span {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 44px !important;
+    padding: 12px 18px !important;
+    border-radius: 999px !important;
+    background: rgba(255, 255, 255, 0.92) !important;
+    border: 1px solid #dce9f8 !important;
+    box-shadow: 0 12px 28px rgba(1, 39, 116, 0.08) !important;
+    color: #003c91 !important;
+    font-size: 13px !important;
+    font-weight: 900 !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media (max-width: 820px) {
+  .rent-hero {
+    min-height: calc(100vh - 66px) !important;
+    padding: 28px 0 34px !important;
+    background: #f5faff !important;
+    overflow: hidden !important;
+  }
+
+  .rent-hero .hero-bg {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(245, 249, 255, 0.98) 0%,
+        rgba(245, 249, 255, 0.88) 48%,
+        rgba(245, 249, 255, 0.55) 100%
+      ),
+      url("./assets/background-phuc-vu.png") center center / cover no-repeat !important;
+    transform: none !important;
+  }
+
+  .rent-hero .orbit-a,
+  .rent-hero .orbit-b {
+    display: none !important;
+  }
+
+  .rent-hero .hero-layout {
+    width: calc(100% - 26px) !important;
+    max-width: 390px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    gap: 0 !important;
+  }
+
+  /* 1. Phần chữ lên đầu */
+  .rent-hero .hero-copy {
+    order: 1 !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .rent-hero .breadcrumb {
+    display: block !important;
+    margin: 0 0 34px !important;
+    color: #008ee8 !important;
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+    font-weight: 950 !important;
+    letter-spacing: .08em !important;
+  }
+
+  .rent-hero .hero-copy h1 {
+    margin: 0 !important;
+    color: #003c91 !important;
+    font-size: 26px !important;
+    line-height: 1.12 !important;
+    font-weight: 950 !important;
+    letter-spacing: -0.8px !important;
+  }
+
+  .rent-hero .hero-copy p {
+    width: 86% !important;
+    max-width: 330px !important;
+    margin: 44px 0 26px !important;
+    color: #42617f !important;
+    font-size: 11.5px !important;
+    line-height: 1.9 !important;
+    font-weight: 500 !important;
+    text-align: justify !important;
+  }
+
+  /* 2. Ba nút pill nằm ngang như mẫu */
+  .rent-hero .hero-mobile-tags {
+    order: 3 !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 10px !important;
+    overflow-x: auto !important;
+    padding: 0 0 8px !important;
+    margin: 0 !important;
+    scrollbar-width: none !important;
+  }
+
+  .rent-hero .hero-mobile-tags::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .rent-hero .hero-mobile-tags span {
+    flex: 0 0 auto !important;
+    padding: 11px 13px !important;
+    border-radius: 999px !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    color: #003c91 !important;
+    font-size: 10.5px !important;
+    font-weight: 900 !important;
+    box-shadow: 0 8px 22px rgba(0, 61, 145, 0.08) !important;
+    border: 1px solid rgba(0, 92, 180, 0.08) !important;
+    white-space: nowrap !important;
+  }
+
+  /* Ẩn 2 nút CTA trong hero mobile cho gọn giống ảnh mẫu */
+  .rent-hero .hero-actions {
+    display: none !important;
+  }
+
+  /* 3. Robot hiện ở giữa, không bị ẩn nữa */
+  .rent-hero .hero-robot {
+    order: 2 !important;
+    display: flex !important;
+    width: 100% !important;
+    min-height: 330px !important;
+    margin: 18px 0 16px !important;
+    padding: 0 !important;
+    justify-content: center !important;
+    align-items: flex-end !important;
+  }
+
+  .rent-hero .robot-card-bg {
+    display: none !important;
+  }
+
+  .rent-hero .hero-robot img {
+    display: block !important;
+    width: 205px !important;
+    max-width: 72vw !important;
+    max-height: 330px !important;
+    object-fit: contain !important;
+    margin: 0 auto !important;
+    filter: drop-shadow(0 24px 30px rgba(0, 35, 80, 0.16)) !important;
+  }
+
+  /* 4. Các card chức năng xuống dưới robot */
+  .rent-hero .hero-cards {
+    order: 4 !important;
+    width: 100% !important;
+    display: grid !important;
+    gap: 18px !important;
+    margin: 12px auto 0 !important;
+  }
+
+  .rent-hero .hero-cards article {
+    min-height: 94px !important;
+    display: grid !important;
+    grid-template-columns: 52px 1fr !important;
+    align-items: center !important;
+    gap: 14px !important;
+    padding: 18px 20px !important;
+    border-radius: 18px !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    border: 1px solid rgba(0, 92, 180, 0.08) !important;
+    box-shadow: 0 12px 32px rgba(0, 61, 145, 0.10) !important;
+  }
+
+  .rent-hero .hero-cards .card-icon {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 13px !important;
+    background: #ffffff !important;
+    box-shadow: 0 8px 18px rgba(0, 61, 145, 0.08) !important;
+  }
+
+  .rent-hero .hero-cards .card-icon img {
+    width: 28px !important;
+    height: 28px !important;
+    object-fit: contain !important;
+  }
+
+  .rent-hero .hero-cards h3 {
+    margin: 0 0 5px !important;
+    color: #003c91 !important;
+    font-size: 14px !important;
+    line-height: 1.25 !important;
+    font-weight: 950 !important;
+    text-transform: uppercase !important;
+  }
+
+  .rent-hero .hero-cards p {
+    margin: 0 !important;
+    color: #6d8197 !important;
+    font-size: 11.5px !important;
+    line-height: 1.55 !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .rent-hero .hero-copy h1 {
+    font-size: 24px !important;
+  }
+
+  .rent-hero .hero-robot {
+    min-height: 300px !important;
+  }
+
+  .rent-hero .hero-robot img {
+    width: 190px !important;
+  }
+}
+
+/* FIX CỨNG: hero cards mobile trượt ngang */
+@media (max-width: 820px) {
+  main.rent-service-page section.rent-hero#home .hero-cards {
+    order: 4 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+
+    gap: 14px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+
+    padding: 4px 18px 18px 0 !important;
+    margin: 12px 0 0 !important;
+
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+
+    grid-template-columns: none !important;
+  }
+
+  main.rent-service-page section.rent-hero#home .hero-cards::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  main.rent-service-page section.rent-hero#home .hero-cards article {
+    flex: 0 0 82% !important;
+    width: 82% !important;
+    min-width: 82% !important;
+    max-width: 82% !important;
+
+    scroll-snap-align: start !important;
+
+    display: grid !important;
+    grid-template-columns: 52px 1fr !important;
+    align-items: center !important;
+
+    min-height: 94px !important;
+    padding: 18px 20px !important;
+    gap: 14px !important;
+
+    border-radius: 18px !important;
+    background: rgba(255,255,255,.96) !important;
+    border: 1px solid rgba(0,92,180,.08) !important;
+    box-shadow: 0 12px 32px rgba(0,61,145,.10) !important;
+  }
+}
+
+/* =====================================================
+   FIX MOBILE RENT HERO:
+   tag -> robot -> card trượt ngang
+===================================================== */
+
+@media (max-width: 820px) {
+  main.rent-service-page section.rent-hero#home {
+    min-height: auto !important;
+    padding: 28px 0 38px !important;
+    overflow: hidden !important;
+    background: #f5faff !important;
+  }
+
+  main.rent-service-page section.rent-hero#home .hero-bg {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(245, 249, 255, 0.98) 0%,
+        rgba(245, 249, 255, 0.88) 48%,
+        rgba(245, 249, 255, 0.55) 100%
+      ),
+      url("./assets/background-phuc-vu.png") center center / cover no-repeat !important;
+    transform: none !important;
+  }
+
+  main.rent-service-page section.rent-hero#home .orbit-a,
+  main.rent-service-page section.rent-hero#home .orbit-b {
+    display: none !important;
+  }
+
+  main.rent-service-page section.rent-hero#home .hero-layout {
+    width: calc(100% - 26px) !important;
+    max-width: 390px !important;
+    margin: 0 auto !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0 !important;
+
+    text-align: left !important;
+  }
+
+  /* Phần chữ + tag */
+  main.rent-service-page section.rent-hero#home .hero-copy {
+    order: 1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+
+  main.rent-service-page section.rent-hero#home .breadcrumb {
+    order: 1 !important;
+    margin: 0 0 30px !important;
+    color: #008ee8 !important;
+    font-size: 11px !important;
+    line-height: 1.45 !important;
+    font-weight: 950 !important;
+    letter-spacing: .08em !important;
+  }
+
+  main.rent-service-page section.rent-hero#home .hero-copy h1 {
+    order: 2 !important;
+    margin: 0 !important;
+    color: #003c91 !important;
+    font-size: 26px !important;
+    line-height: 1.12 !important;
+    font-weight: 950 !important;
+    letter-spacing: -0.8px !important;
+  }
+
+  main.rent-service-page section.rent-hero#home .hero-copy p {
+    order: 3 !important;
+    width: 88% !important;
+    max-width: 340px !important;
+    margin: 38px 0 24px !important;
+    color: #42617f !important;
+    font-size: 11.5px !important;
+    line-height: 1.9 !important;
+    text-align: justify !important;
+  }
+
+  /* 3 ô tag nằm trên robot */
+  main.rent-service-page section.rent-hero#home .hero-mobile-tags {
+    order: 4 !important;
+    width: 100% !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 10px !important;
+
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+
+    margin: 0 0 18px !important;
+    padding: 0 0 8px !important;
+
+    scrollbar-width: none !important;
+  }
+
+  main.rent-service-page section.rent-hero#home .hero-mobile-tags::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  main.rent-service-page section.rent-hero#home .hero-mobile-tags span {
+    flex: 0 0 auto !important;
+    padding: 11px 13px !important;
+    border-radius: 999px !important;
+
+    background: rgba(255, 255, 255, 0.96) !important;
+    border: 1px solid rgba(0, 92, 180, 0.08) !important;
+    box-shadow: 0 8px 22px rgba(0, 61, 145, 0.08) !important;
+
+    color: #003c91 !important;
+    font-size: 10.5px !important;
+    font-weight: 900 !important;
+    white-space: nowrap !important;
+  }
+
+  /* Ẩn 2 nút CTA trên mobile cho giống bố cục mẫu */
+  main.rent-service-page section.rent-hero#home .hero-actions {
+    display: none !important;
+  }
+
+  /* Ảnh robot nằm dưới tag */
+  main.rent-service-page section.rent-hero#home .hero-robot {
+    order: 2 !important;
+
+    display: flex !important;
+    width: 100% !important;
+    min-height: 310px !important;
+
+    margin: 0 auto 18px !important;
+    padding: 0 !important;
+
+    justify-content: center !important;
+    align-items: flex-end !important;
+  }
+
+  main.rent-service-page section.rent-hero#home .robot-card-bg {
+    display: none !important;
+  }
+
+  main.rent-service-page section.rent-hero#home .hero-robot img {
+    display: block !important;
+    width: 210px !important;
+    max-width: 72vw !important;
+    max-height: 310px !important;
+    height: auto !important;
+
+    object-fit: contain !important;
+    margin: 0 auto !important;
+
+    filter: drop-shadow(0 24px 30px rgba(0, 35, 80, 0.16)) !important;
+  }
+
+  /* 4 ô chức năng nằm dưới robot và trượt ngang */
+  main.rent-service-page section.rent-hero#home .hero-cards {
+    order: 3 !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+
+    gap: 14px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+
+    margin: 0 !important;
+    padding: 4px 18px 18px 0 !important;
+
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+
+    grid-template-columns: none !important;
+  }
+
+  main.rent-service-page section.rent-hero#home .hero-cards::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  main.rent-service-page section.rent-hero#home .hero-cards article {
+    flex: 0 0 82% !important;
+    width: 82% !important;
+    min-width: 82% !important;
+    max-width: 82% !important;
+
+    scroll-snap-align: start !important;
+
+    display: grid !important;
+    grid-template-columns: 52px 1fr !important;
+    align-items: center !important;
+    gap: 14px !important;
+
+    min-height: 94px !important;
+    padding: 18px 20px !important;
+
+    border-radius: 18px !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    border: 1px solid rgba(0, 92, 180, 0.08) !important;
+    box-shadow: 0 12px 32px rgba(0, 61, 145, 0.10) !important;
+  }
+
+  main.rent-service-page section.rent-hero#home .hero-cards .card-icon {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 13px !important;
+    background: #ffffff !important;
+    box-shadow: 0 8px 18px rgba(0, 61, 145, 0.08) !important;
+  }
+
+  main.rent-service-page section.rent-hero#home .hero-cards .card-icon img {
+    width: 28px !important;
+    height: 28px !important;
+    object-fit: contain !important;
+  }
+
+  main.rent-service-page section.rent-hero#home .hero-cards h3 {
+    margin: 0 0 5px !important;
+    color: #003c91 !important;
+    font-size: 14px !important;
+    line-height: 1.25 !important;
+    font-weight: 950 !important;
+    text-transform: uppercase !important;
+  }
+
+  main.rent-service-page section.rent-hero#home .hero-cards p {
+    margin: 0 !important;
+    color: #6d8197 !important;
+    font-size: 11.5px !important;
+    line-height: 1.55 !important;
+  }
+}
+
+@media (max-width: 390px) {
+  main.rent-service-page section.rent-hero#home .hero-robot {
+    min-height: 285px !important;
+  }
+
+  main.rent-service-page section.rent-hero#home .hero-robot img {
+    width: 195px !important;
+  }
+
+  main.rent-service-page section.rent-hero#home .hero-cards article {
+    flex-basis: 86% !important;
+    min-width: 86% !important;
+    max-width: 86% !important;
+  }
+}
+
+/* Ẩn cụm nút mobile trên PC */
+.hero-actions-mobile {
+  display: none;
+}
+
+/* Hiện 2 nút dưới card trượt ngang trên mobile */
+@media (max-width: 820px) {
+  main.rent-service-page section.rent-hero#home .hero-actions {
+    display: none !important;
+  }
+
+  main.rent-service-page section.rent-hero#home .hero-actions-mobile {
+    order: 4 !important;
+
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    gap: 12px !important;
+    margin: 8px auto 0 !important;
+    padding: 0 0 4px !important;
+  }
+
+  main.rent-service-page section.rent-hero#home .hero-actions-mobile .btn {
+    width: calc((100% - 12px) / 2) !important;
+    max-width: 150px !important;
+    min-width: 0 !important;
+    min-height: 44px !important;
+
+    padding: 11px 10px !important;
+    border-radius: 999px !important;
+
+    font-size: 12px !important;
+    line-height: 1.2 !important;
+    font-weight: 950 !important;
+    white-space: nowrap !important;
+  }
+
+  main.rent-service-page section.rent-hero#home .hero-actions-mobile .btn.primary {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #003c91, #006ee8) !important;
+    box-shadow: 0 12px 26px rgba(0, 61, 145, 0.22) !important;
+  }
+
+  main.rent-service-page section.rent-hero#home .hero-actions-mobile .btn.white {
+    color: #003c91 !important;
+    background: #ffffff !important;
+    border: 1px solid rgba(0, 92, 180, 0.08) !important;
+    box-shadow: 0 10px 24px rgba(0, 61, 145, 0.10) !important;
+  }
+}
+
+/* FIX MOBILE: Câu hỏi thường gặp xếp dọc 1 cột */
+@media (max-width: 820px) {
+  section.faq-section#faq {
+    padding: 46px 0 56px !important;
+  }
+
+  section.faq-section#faq .section-head {
+    width: calc(100% - 28px) !important;
+    margin: 0 auto 24px !important;
+    text-align: center !important;
+  }
+
+  section.faq-section#faq .section-head h2 {
+    font-size: 28px !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.8px !important;
+  }
+
+  section.faq-section#faq .faq-grid {
+    width: calc(100% - 28px) !important;
+    max-width: 420px !important;
+    margin: 0 auto !important;
+
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  section.faq-section#faq .faq-item {
+    width: 100% !important;
+    min-height: auto !important;
+    border-radius: 18px !important;
+  }
+
+  section.faq-section#faq .faq-item button {
+    min-height: 62px !important;
+    padding: 18px 66px 18px 18px !important;
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+  }
+
+  section.faq-section#faq .faq-item button::after {
+    right: 18px !important;
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  section.faq-section#faq .faq-answer p {
+    padding: 0 18px 20px !important;
+    font-size: 13px !important;
+    line-height: 1.7 !important;
+    text-align: left !important;
+  }
+}

@@ -1,0 +1,16 @@
+node_modules/
+.firebase/
+.env
+*.log
+
+# file nén / backup
+*.zip
+*.rar
+*.7z
+
+# build/cache nếu có
+.cache/
+
+# hệ điều hành
+.DS_Store
+Thumbs.db

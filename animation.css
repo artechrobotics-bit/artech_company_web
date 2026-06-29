@@ -1,0 +1,324 @@
+/* =========================================================
+   ARTECH Animation Only
+   Chỉ thêm hiệu ứng, không thay đổi nội dung / bố cục HTML.
+   ========================================================= */
+
+:root {
+  --artech-anim-ease: cubic-bezier(.2,.8,.2,1);
+  --artech-anim-time: 1s;
+}
+
+/* Header vào trang mượt hơn */
+.header {
+  animation: artechHeaderDrop .58s var(--artech-anim-ease) both;
+}
+
+.top-line {
+  background-size: 220% 100%;
+  animation: artechLineFlow 5.5s linear infinite;
+}
+
+/* Reveal khi cuộn */
+html.artech-anim-ready .anim-reveal {
+  opacity: 0;
+  transform: translate3d(0, 26px, 0);
+  filter: blur(5px);
+  will-change: opacity, transform, filter;
+}
+
+html.artech-anim-ready .anim-reveal.anim-in {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: blur(0);
+  transition:
+    opacity var(--artech-anim-time) var(--artech-anim-ease),
+    transform var(--artech-anim-time) var(--artech-anim-ease),
+    filter var(--artech-anim-time) var(--artech-anim-ease);
+  transition-delay: var(--anim-delay, 0ms);
+}
+
+/* Hero: chữ và ảnh vào trang nhẹ */
+.hero-copy > *,
+.hero-content > *,
+.slide-content > * {
+  animation: artechFadeUp .72s var(--artech-anim-ease) both;
+}
+
+.hero-copy > *:nth-child(2),
+.hero-content > *:nth-child(2),
+.slide-content > *:nth-child(2) {
+  animation-delay: .08s;
+}
+
+.hero-copy > *:nth-child(3),
+.hero-content > *:nth-child(3),
+.slide-content > *:nth-child(3) {
+  animation-delay: .16s;
+}
+
+.hero-copy > *:nth-child(4),
+.hero-content > *:nth-child(4),
+.slide-content > *:nth-child(4) {
+  animation-delay: .24s;
+}
+
+.hero-copy > *:nth-child(5),
+.hero-content > *:nth-child(5),
+.slide-content > *:nth-child(5) {
+  animation-delay: .32s;
+}
+
+/* Robot / ảnh chính nổi nhẹ */
+.hero-robot,
+.center-robot img,
+.hero-photo img,
+.cta-img,
+.vision-robot,
+.about-visual img,
+.product-hero img {
+  animation: artechFloat 5.8s ease-in-out infinite;
+}
+
+/* Card hover chuyên nghiệp */
+.product-card,
+.service-card,
+.feature-card,
+.info-card,
+.value-card,
+.app-card,
+.eventbot-card,
+.process-grid article,
+.price-card,
+.faq-item,
+.project-card,
+.news-card,
+.article-card,
+.contact-card,
+.stat-card,
+.cap-card,
+.spec-grid article,
+.feature-strip article,
+.bottom-box,
+.robot-info-box,
+.hero-side-cards article,
+.hero-stats article,
+.logo-card,
+.gallery-card {
+  transition:
+    transform .28s var(--artech-anim-ease),
+    box-shadow .28s var(--artech-anim-ease),
+    border-color .28s var(--artech-anim-ease),
+    filter .28s var(--artech-anim-ease);
+  will-change: transform;
+}
+
+.product-card:hover,
+.service-card:hover,
+.feature-card:hover,
+.info-card:hover,
+.value-card:hover,
+.app-card:hover,
+.eventbot-card:hover,
+.process-grid article:hover,
+.price-card:hover,
+.faq-item:hover,
+.project-card:hover,
+.news-card:hover,
+.article-card:hover,
+.stat-card:hover,
+.cap-card:hover,
+.spec-grid article:hover,
+.feature-strip article:hover,
+.bottom-box:hover,
+.robot-info-box:hover,
+.hero-side-cards article:hover,
+.hero-stats article:hover,
+.logo-card:hover,
+.gallery-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 24px 58px rgba(1, 39, 116, .15);
+  border-color: rgba(0, 166, 229, .34);
+}
+
+/* Ảnh trong card zoom nhẹ khi hover */
+.product-card img,
+.service-card img,
+.app-card img,
+.project-card img,
+.news-card img,
+.article-card img,
+.gallery-card img,
+.spec-grid article img {
+  transition: transform .45s var(--artech-anim-ease), filter .45s var(--artech-anim-ease);
+}
+
+.product-card:hover img,
+.service-card:hover img,
+.app-card:hover img,
+.project-card:hover img,
+.news-card:hover img,
+.article-card:hover img,
+.gallery-card:hover img,
+.spec-grid article:hover img {
+  transform: scale(1.035);
+  filter: saturate(1.06) contrast(1.02);
+}
+
+/* Nút có ánh sáng quét */
+.btn,
+.login,
+.lienhe,
+.mobile-quote-btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn::after,
+.login::after,
+.lienhe::after,
+.mobile-quote-btn::after {
+  content: "";
+  position: absolute;
+  inset: -60% auto -60% -55%;
+  width: 42%;
+  transform: skewX(-22deg);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.btn:hover::after,
+.login:hover::after,
+.lienhe:hover::after,
+.mobile-quote-btn:hover::after {
+  animation: artechShine .85s ease;
+}
+
+/* Menu dropdown mở mềm hơn */
+.dropdown-menu,
+.sub-menu,
+.mobile-menu {
+  transition:
+    opacity .28s var(--artech-anim-ease),
+    transform .28s var(--artech-anim-ease),
+    visibility .28s var(--artech-anim-ease);
+}
+
+/* FAQ mở mượt */
+.faq-answer {
+  transition: max-height .35s var(--artech-anim-ease), opacity .35s var(--artech-anim-ease);
+}
+
+.faq-item:not(.open) .faq-answer {
+  opacity: 0;
+}
+
+.faq-item.open .faq-answer {
+  opacity: 1;
+}
+
+/* Icon liên hệ nổi nhẹ */
+.floating-contact,
+.back-top {
+  animation: artechFloatSmall 4.6s ease-in-out infinite;
+}
+
+/* Slider ảnh mượt hơn */
+.slide.active img {
+  animation: artechHeroZoom 7s ease both;
+}
+
+/* Keyframes */
+@keyframes artechHeaderDrop {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes artechLineFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 220% 50%;
+  }
+}
+
+@keyframes artechFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes artechFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes artechFloatSmall {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes artechShine {
+  0% {
+    left: -55%;
+    opacity: 0;
+  }
+  20% {
+    opacity: .95;
+  }
+  100% {
+    left: 125%;
+    opacity: 0;
+  }
+}
+
+@keyframes artechHeroZoom {
+  from {
+    transform: scale(1.018);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Tôn trọng thiết lập giảm chuyển động của người dùng */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+
+  html.artech-anim-ready .anim-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
